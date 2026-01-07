@@ -22,6 +22,7 @@ body.dark-mode {
 
 
 body {
+  background: linear-gradient(180deg, #305261, #203a43, #2c5364);
   font-family: Arial, sans-serif;
   background-color: linear-gradient(var(--bg1), var(--bg2), var(--bg3));
   color: var(--text);
