@@ -17,12 +17,15 @@ body.dark-mode {
   --card: #2c2c2c;
   --header: #333;
   --muted: #aaa;
+  --accent: #305261;
+  --accent-hover: #203a43;
+  --button-bg: #2c5364;
+  
 }
 
 
-
 body {
-  background: linear-gradient(180deg, #305261, #203a43, #2c5364);
+  background: linear-gradient(180deg, var(--accent,#305261), var(--accent-hover,#203a43), var(--button-bg,#2c5364));
   font-family: Arial, sans-serif;
   background-color: linear-gradient(var(--bg1), var(--bg2), var(--bg3));
   color: var(--text);
@@ -67,6 +70,7 @@ footer ul li a {
 .hero h1 {
   font-size: clamp(2.2rem, 5vw, 3.2rem);
   margin-bottom: 16px;
+  color:white;
 }
 
 .hero p {
@@ -88,6 +92,7 @@ footer ul li a {
   text-decoration: none;
   transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s;
   box-shadow: 0 8px 20px rgba(0, 113, 227, 0.25);
+  color: #fff;
 }
 
 .btn-primary:hover {
