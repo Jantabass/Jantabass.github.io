@@ -19,6 +19,10 @@ document.getElementById("footer").innerHTML = `
 `;
 
 // --- iPhone-data ---
+
+
+
+
 const phones = {
   iphone13: {
     name: "iPhone 13",
@@ -27,7 +31,12 @@ const phones = {
     storage: "128 GB",
     battery: "3240 mAh",
     chip: "A15 Bionic",
-    weight: "174 g"
+    weight: "174 g",
+    ram: "4 GB",
+    cameraLenses: 2,
+    maxZoom: "5x digital",
+    refreshRateHz: 60,
+    maxCameraResolution: "4K 60fps"
   },
   iphone13pro: {
     name: "iPhone 13 Pro",
@@ -36,7 +45,12 @@ const phones = {
     storage: "128 GB",
     battery: "3095 mAh",
     chip: "A15 Bionic",
-    weight: "204 g"
+    weight: "204 g",
+    ram: "6 GB",
+    cameraLenses: 3,
+    maxZoom: "15x digital / 3x optisk",
+    refreshRateHz: 120,
+    maxCameraResolution: "4K 60fps ProRes"
   },
   iphone14: {
     name: "iPhone 14",
@@ -45,25 +59,40 @@ const phones = {
     storage: "128 GB",
     battery: "3240 mAh",
     chip: "A15 Bionic",
-    weight: "174 g"
+    weight: "174 g",
+    ram: "6 GB",
+    cameraLenses: 2,
+    maxZoom: "5x digital",
+    refreshRateHz: 60,
+    maxCameraResolution: "4K 60fps"
   },
   iphone15: {
     name: "iPhone 15",
-    screen: '6.1" ProMotion',
-    camera: "Triple 12 MP",
+    screen: '6.1"',
+    camera: "48 MP + 12 MP",
     storage: "128 GB",
-    battery: "3095 mAh",
-    chip: "A15 Bionic",
-    weight: "204 g"
+    battery: "3349 mAh",
+    chip: "A16 Bionic",
+    weight: "171 g",
+    ram: "6 GB",
+    cameraLenses: 2,
+    maxZoom: "10x digital / 2x sensor",
+    refreshRateHz: 60,
+    maxCameraResolution: "4K 60fps"
   },
-   iphone15pro: {
+  iphone15pro: {
     name: "iPhone 15 Pro",
     screen: '6.1" ProMotion 120Hz',
     camera: "48 MP + 12 MP + 12 MP",
     storage: "128 GB",
     battery: "3274 mAh",
     chip: "A17 Pro",
-    weight: "187 g"
+    weight: "187 g",
+    ram: "8 GB",
+    cameraLenses: 3,
+    maxZoom: "15x digital / 3x optisk",
+    refreshRateHz: 120,
+    maxCameraResolution: "4K 60fps ProRes Log"
   },
   iphone16: {
     name: "iPhone 16",
@@ -72,7 +101,12 @@ const phones = {
     storage: "128–512 GB",
     battery: "3561 mAh circa",
     chip: "A18",
-    weight: "170 g"
+    weight: "170 g",
+    ram: "8 GB",
+    cameraLenses: 2,
+    maxZoom: "10x digital / 2x sensor",
+    refreshRateHz: 60,
+    maxCameraResolution: "4K 60fps"
   },
   iphone16plus: {
     name: "iPhone 16 Plus",
@@ -81,34 +115,54 @@ const phones = {
     storage: "128–512 GB",
     battery: "4674 mAh circa",
     chip: "A18",
-    weight: "unknown"
+    weight: "unknown",
+    ram: "8 GB",
+    cameraLenses: 2,
+    maxZoom: "10x digital / 2x sensor",
+    refreshRateHz: 60,
+    maxCameraResolution: "4K 60fps"
   },
   iphone16e: {
     name: "iPhone 16e",
     screen: '6.1" OLED',
     camera: "48 MP + 12 MP",
     storage: "128–512 GB",
-    battery: "≈4000 mAh (omtrentlig)",
+    battery: "≈4000 mAh",
     chip: "A18",
-    weight: "167 g"
+    weight: "167 g",
+    ram: "8 GB",
+    cameraLenses: 2,
+    maxZoom: "10x digital",
+    refreshRateHz: 60,
+    maxCameraResolution: "4K 60fps"
   },
   iphone16pro: {
     name: "iPhone 16 Pro",
     screen: '6.3" ProMotion 120Hz',
-    camera: "48 MP triple (inkl. tele)",
+    camera: "48 MP triple",
     storage: "128–1024 GB",
     battery: "3582 mAh circa",
     chip: "A18 Pro",
-    weight: "unknown"
+    weight: "unknown",
+    ram: "8 GB",
+    cameraLenses: 3,
+    maxZoom: "25x digital / 5x optisk",
+    refreshRateHz: 120,
+    maxCameraResolution: "4K 120fps"
   },
   iphone16promax: {
     name: "iPhone 16 Pro Max",
     screen: '6.9" ProMotion 120Hz',
-    camera: "48 MP triple (inkl. tele)",
+    camera: "48 MP triple",
     storage: "256–1024 GB",
     battery: "4685 mAh circa",
     chip: "A18 Pro",
-    weight: "227 g"
+    weight: "227 g",
+    ram: "8 GB",
+    cameraLenses: 3,
+    maxZoom: "25x digital / 5x optisk",
+    refreshRateHz: 120,
+    maxCameraResolution: "4K 120fps"
   },
   iphone17: {
     name: "iPhone 17",
@@ -117,27 +171,47 @@ const phones = {
     storage: "256–512 GB",
     battery: "3692 mAh circa",
     chip: "A19",
-    weight: "177 g"
+    weight: "177 g",
+    ram: "8 GB",
+    cameraLenses: 2,
+    maxZoom: "10x digital",
+    refreshRateHz: 120,
+    maxCameraResolution: "4K 60fps"
   },
   iphone17pro: {
     name: "iPhone 17 Pro",
     screen: '6.3" ProMotion 120Hz OLED',
-    camera: "48 MP triple (vid + ultra + tele)",
+    camera: "48 MP triple",
     storage: "256–1024 GB",
     battery: "4252 mAh circa",
     chip: "A19 Pro",
-    weight: "206 g"
+    weight: "206 g",
+    ram: "12 GB",
+    cameraLenses: 3,
+    maxZoom: "30x digital / 5x optisk",
+    refreshRateHz: 120,
+    maxCameraResolution: "8K 30fps"
   },
   iphone17promax: {
     name: "iPhone 17 Pro Max",
     screen: '6.9" ProMotion 120Hz OLED',
-    camera: "48 MP triple (vid + ultra + tele)",
+    camera: "48 MP triple",
     storage: "256–2048 GB",
     battery: "5088 mAh circa",
     chip: "A19 Pro",
-    weight: "233 g"
+    weight: "233 g",
+    ram: "12 GB",
+    cameraLenses: 3,
+    maxZoom: "30x digital / 5x optisk",
+    refreshRateHz: 120,
+    maxCameraResolution: "8K 30fps"
   }
 }
+
+
+
+
+
 
 
 
@@ -148,7 +222,7 @@ const phones = {
 // --- Sammenlikning med dynamisk ledig slot ---
 // --- Sammenlikning med dynamisk ledig slot ---
 let compareSlots = []; // valgte modeller
-const MAX_COMPARE = 4;
+const MAX_COMPARE = 3;
 
 // Oppdater panel nederst
 function renderComparePanel() {
@@ -167,13 +241,19 @@ function renderComparePanel() {
       const p = phones[key];
       html += `
         <div style="border:1px solid black; padding:10px; min-width:150px; position: relative; box-shadow:0 4px 8px rgba(0,0,0,0.5);">
+        <button onclick="removeFromCompare('${key}')">Fjern</button>
           <h3>${p.name}</h3>
           <p>Skjerm: ${p.screen}</p>
           <p>Kamera: ${p.camera}</p>
           <p>Lagring: ${p.storage}</p>
           <p>Prosessor: ${p.chip}</p>
           <p>Vekt: ${p.weight}</p>
-          <button onclick="removeFromCompare('${key}')">Fjern</button>
+          <p>RAM: ${p.ram}</p>
+          <p>Max Zoom: ${p.maxZoom}</p>
+          <p>Max Kameraoppløsning: ${p.maxCameraResolution}</p>
+          <p>Oppfriskningsfrekvens: ${p.refreshRateHz} Hz</p>
+          <p>Kameraobjektiver: ${p.cameraLenses}</p>
+          <p>Batteri: ${p.battery}</p>
     
         </div>
       `;
