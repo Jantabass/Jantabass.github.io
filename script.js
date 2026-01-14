@@ -222,7 +222,11 @@ const phones = {
 // --- Sammenlikning med dynamisk ledig slot ---
 // --- Sammenlikning med dynamisk ledig slot ---
 let compareSlots = []; // valgte modeller
-const MAX_COMPARE = 3;
+const MAX_COMPARE = window.innerWidth <= 768 ? 2 : 3;
+
+window.addEventListener("resize", () => {
+  maxCompare = window.innerWidth <= 768 ? 2 : 3;
+});
 
 // Oppdater panel nederst
 function renderComparePanel() {
@@ -240,7 +244,8 @@ function renderComparePanel() {
     } else {
       const p = phones[key];
       html += `
-        <div style="border:1px solid black; padding:10px; min-width:150px; position: relative; box-shadow:0 4px 8px rgba(0,0,0,0.5);">
+        <div class="compare_phone">
+        
         <button onclick="removeFromCompare('${key}')">Fjern</button>
           <h3>${p.name}</h3>
           <p>Skjerm: ${p.screen}</p>
