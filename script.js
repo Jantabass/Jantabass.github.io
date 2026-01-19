@@ -18,6 +18,17 @@ document.getElementById("footer").innerHTML = `
   </footer>
 `;
 
+
+
+const soundAdd = new Audio("sounds/add.mp3");
+const soundRemove = new Audio("sounds/remove.mp3");
+const soundToggle = new Audio("sounds/toggle.mp3");
+
+function playSound(sound) {
+  sound.currentTime = 0;
+  sound.play();
+}
+
 // Initial tomme plasser
 
 
@@ -368,6 +379,8 @@ function highlightMaxValues() {
 }
 
 function addToCompare(key) {
+  playSound(soundAdd);
+
   if (compareSlots.includes(key)) return;
   const emptyIndex = compareSlots.indexOf("empty");
   if (emptyIndex !== -1) {

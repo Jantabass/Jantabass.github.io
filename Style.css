@@ -162,6 +162,29 @@ header, footer {
   padding: 40px 20px;
 }
 
+
+
+.hero-bg {
+  background-image: linear-gradient(
+      rgba(0,0,0,0.45),
+      rgba(0,0,0,0.45)
+    ),url("https://images.moneycontrol.com/static-mcnews/2024/05/20240517060743_daniel-romero-TpXoTb1uR5A-unsplash-2.jpg?impolicy=website&width=770&height=431");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 90vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  color: white;
+  text-align: center;
+  padding: 2rem;
+}
+
+
 .hero .less_big_hero h1 {
   font-size: clamp(2.2rem, 5vw, 3.2rem);
   margin-bottom: 16px;
