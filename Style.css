@@ -308,9 +308,7 @@ header, footer {
 #modeBtn {
   border-radius: 13px;
   padding: 5px;
- 
-  background: var(--accent);
- 
+  background: var(--bg1);
 }
  
  
