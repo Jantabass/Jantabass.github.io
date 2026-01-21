@@ -277,14 +277,21 @@ window.addEventListener("resize", () => {
 });
  
 // Oppdater panel nederst
+
+
+
+
+
 function renderComparePanel() {
   const panel = document.getElementById("compareBox");
-  let html = "<div style='display:flex; gap:10px; flex-wrap: wrap;'>";
- 
-  compareSlots.forEach((key, index) => {
+  if (!panel) return;
+
+  let html = ""; // start på nytt hver gang
+
+  compareSlots.forEach((key) => {
     if (key === "empty") {
       html += `
-        <div style="border:1px dashed black; min-width:150px; min-height:150px; display:flex; align-items:center; justify-content:center; box-shadow:0 4px 8px rgba(0,0,0,0.5); position: relative;">
+        <div class="compare_phone" style="border:1px dashed black; display:flex; align-items:center; justify-content:center;">
           <span style="font-size:24px; color:gray;">+</span>
         </div>
       `;
@@ -305,23 +312,25 @@ function renderComparePanel() {
           <p>Maks kamera FPS: <span class="highlight-maxCameraFPS">${p.maxCameraFPS} FPS</span></p>
           <p>Batterikapasitet: <span  class="highlight-battery">${p.battery} mAh</span></p>
           <p>Chip: ${p.chip}</p>
- 
         </div>
       `;
     }
   });
- 
-  html += "</div>";
+
   panel.innerHTML = html;
- 
-  // Legg til event listeners for alle fjern-knapper
+
+  // Fjern-knapper
   panel.querySelectorAll(".remove-btn").forEach(btn => {
     btn.addEventListener("click", () => {
-      const key = btn.dataset.key;
-      removeFromCompare(key);
+      removeFromCompare(btn.dataset.key);
     });
   });
 }
+
+
+
+
+
  
 // Funksjon for å fremheve høyeste verdier i compareBox
 function highlightMaxValues() {

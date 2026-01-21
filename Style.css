@@ -7,6 +7,9 @@
   --header: #ddd;
   --muted: #444;
   --footer_text_color: #fff;
+  --accent: #305261;
+  --accent-hover: #203a43;
+  --button-bg: #2c5364;
 }
  
  
@@ -18,6 +21,7 @@ body.dark-mode {
   --card: #2c2c2c;
   --header: #333;
   --muted: #aaa;
+  --footer_text_color: #000000;
   --accent: #305261;
   --accent-hover: #203a43;
   --button-bg: #2c5364;
@@ -71,6 +75,12 @@ header, footer {
  
 #compareBox {
   margin-top: 30px;
+    display: flex;
+  flex-wrap: wrap;      /* neste rad hvis mer enn 3 */
+  gap: 3%;              /* mellomrom mellom telefonene */
+  justify-content: center;
+  margin-top: 30px;
+  
 }
  
  
@@ -86,6 +96,8 @@ header, footer {
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   position: relative;
   cursor: pointer;
+  box-sizing: border-box;
+  margin-bottom: 20px;
 }
  
 .compare_phone:hover {
@@ -175,17 +187,13 @@ header, footer {
     ),url("https://images.moneycontrol.com/static-mcnews/2024/05/20240517060743_daniel-romero-TpXoTb1uR5A-unsplash-2.jpg?impolicy=website&width=770&height=431");
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;
-  min-height: 90vh;
-
+  width: 100%;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-
-  color: white;
   text-align: center;
-  padding: 2rem;
+  justify-content: center;
 }
 
 
@@ -215,7 +223,7 @@ header, footer {
  
 .intro {
   max-width: 700px;
-  margin: -80px auto 80px; /* overlapper hero litt */
+  margin: 80px auto;
   padding: 32px 40px;
   background: var(--card);
   border-radius: 20px;
@@ -247,7 +255,7 @@ header, footer {
 .btn-primary:hover {
   background: var(--accent-hover);
   transform: translateY(-2px);
-  box-shadow: 0 12px 28px rgba(0, 113, 227, 0.35);
+  box-shadow: 0 12px 28px var(--bg1);
   
 }
  
@@ -339,12 +347,14 @@ header, footer {
   background-color: var(--bg1);
 }
 
-
+.hero-bg { position: relative; }
 .slideshow {
-  position: absolute;
-  inset: 0;
-  z-index: -1;
+  position: relative;
+  width: 100%;
+  height: 60vh;   /* juster høyde */
   overflow: hidden;
+  flex: 0 0 auto;
+
 }
 
 .slide {
