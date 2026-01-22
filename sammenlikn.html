@@ -12,24 +12,46 @@
 <main class="less_big_hero">
 
 <h1>Sammenlikn iPhone-modeller</h1>
-<p>Klikk på modellene du vil sammenlikne (maks 2), deretter trykk "Sammenlikn"</p>
+<p>Klikk på modellene du vil sammenlikne. Maks 3 om gangen.</p>
 </main>
 
 <div class ="compare_section">
 
-<div class="container">
-  <div class="phone" onclick="addToCompare('iphone13')">iPhone 13
+
+<div id="phoneGroups" class="phone-groups">
+  <div class="group">
+    <button class="group-btn">iPhone 15-serie</button>
+    <div class="group-phones">
+      <div class="phone" onclick="addToCompare('iphone15')">iPhone 15</div>
+      <div class="phone" onclick="addToCompare('iphone15pro')">iPhone 15 Pro</div>
+      <div class="phone" onclick="addToCompare('iphone15promax')">iPhone 15 Pro Max</div>
+    </div>
   </div>
-<div class="phone" onclick="addToCompare('iphone13pro')">iPhone 13 Pro
+
+  <div class="group">
+    <button class="group-btn">iPhone 16-serie</button>
+    <div class="group-phones">
+      <div class="phone" onclick="addToCompare('iphone16')">iPhone 16</div>
+      <div class="phone" onclick="addToCompare('iphone16pro')">iPhone 16 Pro</div>
+      <div class="phone" onclick="addToCompare('iphone16promax')">iPhone 16 Pro Max</div>
+      <div class="phone" onclick="addToCompare('iphone16air')">iPhone Air</div>
+    </div>
+  </div>
+
+  <div class="group">
+    <button class="group-btn">iPhone 17-serie</button>
+    <div class="group-phones">
+      <div class="phone" onclick="addToCompare('iphone17')">iPhone 17</div>
+      <div class="phone" onclick="addToCompare('iphone17pro')">iPhone 17 Pro</div>
+      <div class="phone" onclick="addToCompare('iphone17promax')">iPhone 17 Pro Max</div>
+    </div>
+  </div>
+
+
+
 </div>
-<div class="phone" onclick="addToCompare('iphone14')">iPhone 14</div>
-<div class="phone" onclick="addToCompare('iphone15')">iPhone 15</div>
-<div class="phone" onclick="addToCompare('iphone16')">iPhone 16</div>
-<div class="phone" onclick="addToCompare('iphone16pro')">iPhone 16 Pro</div>
-<div class="phone" onclick="addToCompare('iphone17')">iPhone 17</div>
-<div class="phone" onclick="addToCompare('iphone17pro')">iPhone 17 Pro</div>
-<div class="phone" onclick="addToCompare('iphone17promax')">iPhone 17 Pro max</div>
-</div>
+
+
 </div>
 
 <div id="compareBox"></div>

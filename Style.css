@@ -7,8 +7,8 @@
   --header: #ddd;
   --muted: #444;
   --footer_text_color: #fff;
-  --accent: #e477ff;
-  --accent-hover: #ff0000;
+  --accent-hover: #ff97bb;
+  --accent: #ff2865;
   --button-bg: #ffffff;
   --gradient-col: linear-gradient(180deg, var(--accent, var(--bg1)), var(--accent-hover, var(--bg2)), var(--button-bg, var(--bg3)));
 }
@@ -19,7 +19,7 @@ body.dark-mode {
   --bg2: #4e4e4e;
   --bg3: #8a8a8a;
   --text: #f0f0f0;
-  --card: #2c2c2c;
+  --card: #1d3445;
   --header: #333;
   --muted: #aaa;
   --footer_text_color: #000000;
@@ -31,7 +31,7 @@ body.dark-mode {
  
 
 
-h1 {
+h1, h2, h3{
   color: white;
 }
 p {
@@ -80,7 +80,65 @@ header, footer {
   transform: translateY(-2px);
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
 }
- 
+
+#phoneGroups {
+  width: 90%;
+}
+
+.phone-groups {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.group {
+  flex: 1;   /* 3 grupper ved siden av hverandre */
+}
+
+
+.group-phones {
+  display: none;      /* skjult som standard */
+  margin-top: 10px;
+  gap: 20px;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: flex-start;  /* legger barna ved siden av hverandre */
+}
+
+.group-phones.show {
+  display: flex;      /* vis som flex */
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.group-phones .phone {
+  flex: 0 0 30%;      /* maks 3 per rad */
+  margin-bottom: 20px;
+  box-sizing: border-box;
+}
+
+.group-btn {
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  background-color: var(--accent);
+  color: #fff;
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+.group-btn:hover {
+  background-color: var(--accent-hover);
+}
+
+
+
+
 #compareBox {
   margin-top: 30px;
     display: flex;
@@ -229,6 +287,8 @@ header, footer {
   border-radius: 20px;
   box-shadow: 0 20px 60px rgba(0,0,0,0.15);
   text-align: center;
+  align-items: center;
+  align-self: center;
 }
 
 .intro p {
@@ -351,9 +411,10 @@ header, footer {
 .slideshow {
   position: relative;
   width: 100%;
-  height: 60vh;   /* juster høyde */
+  height: 90vh;   /* juster høyde */
   overflow: hidden;
   flex: 0 0 auto;
+  align-self: center;
 
 }
 

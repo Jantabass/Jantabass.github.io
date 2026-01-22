@@ -108,7 +108,9 @@ const phones = {
     opticZoom: 2,
     refreshRateHz: 60,
     maxCameraResolution: 4,
-    maxCameraFPS: 60
+    maxCameraFPS: 60,
+    videoHours: 20, 
+    ppi: 460,
   },
   iphone15pro: {
     name: "iPhone 15 Pro",
@@ -124,8 +126,47 @@ const phones = {
     opticZoom: 3,
     refreshRateHz: 120,
     maxCameraResolution: 4,
-    maxCameraFPS: 60
+    maxCameraFPS: 60,
+    videoHours: 26,
+    ppi: 460,
   },
+iphone15promax: {
+  name: "iPhone 15 Pro Max",
+  screen: 6.7,
+  camera: "48 MP + 12 MP + 12 MP",
+  storage: 256,
+  battery: 4422,
+  chip: "A17 Pro",
+  weight: 221,
+  ram: 8,
+  cameraLenses: 3,
+  digitalZoom: 25,
+  opticZoom: 5,
+  refreshRateHz: 120,
+  maxCameraResolution: 4,
+  maxCameraFPS: 60,
+  videoHours: 29,
+  ppi: 460
+},
+
+iphone16air: {
+  name: "iPhone Air",
+  screen: 6.6,
+  camera: "48 MP",
+  storage: 256,
+  battery: 4200,
+  chip: "A18",
+  weight: 160,
+  ram: 8,
+  cameraLenses: 1,
+  digitalZoom: 10,
+  opticZoom: 0,
+  refreshRateHz: 60,
+  maxCameraResolution: 4,
+  maxCameraFPS: 60
+},
+
+
   iphone16: {
     name: "iPhone 16",
     screen: 6.1,
@@ -260,7 +301,15 @@ const phones = {
  
  
  
- 
+document.querySelectorAll(".group-btn").forEach(btn => {
+  btn.addEventListener("click", () => {
+    const phonesDiv = btn.nextElementSibling;
+    phonesDiv.classList.toggle("show");  // toggle visning
+  });
+});
+
+
+
  
  
 // --- Sammenlikning ---
@@ -390,6 +439,7 @@ function highlightMaxValues() {
 }
  
 function addToCompare(key) {
+  if (!phones[key]) return;
   playSound(soundAdd);
 
   if (compareSlots.includes(key)) return;
