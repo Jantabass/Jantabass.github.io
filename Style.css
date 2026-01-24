@@ -148,7 +148,12 @@ header, footer {
   margin-top: 30px;
   
 }
- 
+.compare_section {
+  margin-bottom: 100px;
+  justify-content: center;
+  flex-direction: column;
+
+}
  
 .compare_phone {
   background: var(--card);

@@ -34,11 +34,8 @@ function playSound(sound) {
  
 // --- iPhone-data ---
 function removeFromCompare(key) {
-  const index = compareSlots.indexOf(key);
-  if (index !== -1) {
-    // Fjern modellen og sett inn "empty" på samme plass
-    compareSlots[index] = "empty";
-  }
+  compareSlots = compareSlots.filter(p => p !== key);
+  playSound(soundRemove);
   renderComparePanel();
   highlightMaxValues();
 }
@@ -111,6 +108,7 @@ const phones = {
     maxCameraFPS: 60,
     videoHours: 20, 
     ppi: 460,
+    bluetoothVersion: 5.3
   },
   iphone15pro: {
     name: "iPhone 15 Pro",
@@ -129,6 +127,7 @@ const phones = {
     maxCameraFPS: 60,
     videoHours: 26,
     ppi: 460,
+    bluetoothVersion: 5.3
   },
 iphone15promax: {
   name: "iPhone 15 Pro Max",
@@ -146,7 +145,8 @@ iphone15promax: {
   maxCameraResolution: 4,
   maxCameraFPS: 60,
   videoHours: 29,
-  ppi: 460
+  ppi: 460,
+  bluetoothVersion: 5.3
 },
 
 iphone16air: {
@@ -163,7 +163,8 @@ iphone16air: {
   opticZoom: 0,
   refreshRateHz: 60,
   maxCameraResolution: 4,
-  maxCameraFPS: 60
+  maxCameraFPS: 60,
+  bluetoothVersion: 5.3
 },
 
 
@@ -181,7 +182,8 @@ iphone16air: {
     opticZoom: 2,
     refreshRateHz: 60,
     maxCameraResolution: 4,
-    maxCameraFPS: 60
+    maxCameraFPS: 60,
+    bluetoothVersion: 5.3
   },
   iphone16plus: {
     name: "iPhone 16 Plus",
@@ -197,7 +199,8 @@ iphone16air: {
     opticZoom: 2,
     refreshRateHz: 60,
     maxCameraResolution: 4,
-    maxCameraFPS: 60
+    maxCameraFPS: 60,
+    bluetoothVersion: 5.3
   },
   iphone16e: {
     name: "iPhone 16e",
@@ -213,7 +216,8 @@ iphone16air: {
     opticZoom: 0,
     refreshRateHz: 60,
     maxCameraResolution: 4,
-    maxCameraFPS: 60
+    maxCameraFPS: 60,
+    bluetoothVersion: 5.3
   },
   iphone16pro: {
     name: "iPhone 16 Pro",
@@ -229,7 +233,8 @@ iphone16air: {
     opticZoom: 5,
     refreshRateHz: 120,
     maxCameraResolution: 4,
-    maxCameraFPS: 120
+    maxCameraFPS: 120,
+    bluetoothVersion: 5.3
   },
   iphone16promax: {
     name: "iPhone 16 Pro Max",
@@ -245,7 +250,8 @@ iphone16air: {
     opticZoom: 5,
     refreshRateHz: 120,
     maxCameraResolution: 4,
-    maxCameraFPS: 60
+    maxCameraFPS: 60,
+    bluetoothVersion: 5.3
   },
   iphone17: {
     name: "iPhone 17",
@@ -261,7 +267,8 @@ iphone16air: {
     opticZoom: 0,
     refreshRateHz: 120,
     maxCameraResolution: 4,
-    maxCameraFPS: 60
+    maxCameraFPS: 60,
+    bluetoothVersion: 6
   },
   iphone17pro: {
     name: "iPhone 17 Pro",
@@ -277,7 +284,8 @@ iphone16air: {
     opticZoom: 5,
     refreshRateHz: 120,
     maxCameraResolution: 8,
-    maxCameraFPS: 60
+    maxCameraFPS: 60,
+    bluetoothVersion: 6
   },
   iphone17promax: {
     name: "iPhone 17 Pro Max",
@@ -293,7 +301,8 @@ iphone16air: {
     opticZoom: 5,
     refreshRateHz: 120,
     maxCameraResolution: 8,
-    maxCameraFPS: 60
+    maxCameraFPS: 60,
+    bluetoothVersion: 6
   }
 };
  
@@ -338,13 +347,6 @@ function renderComparePanel() {
   let html = ""; // start på nytt hver gang
 
   compareSlots.forEach((key) => {
-    if (key === "empty") {
-      html += `
-        <div class="compare_phone" style="border:1px dashed black; display:flex; align-items:center; justify-content:center;">
-          <span style="font-size:24px; color:gray;">+</span>
-        </div>
-      `;
-    } else {
       const p = phones[key];
       html += `
         <div class="compare_phone">
@@ -352,6 +354,7 @@ function renderComparePanel() {
           <h3>${p.name}</h3>
           <p>Skjerm: <span class="highlight-screen">${p.screen}</span></p>
           <p>Kamera: ${p.camera}</p>
+          <p>Antall linser: <span class="highlight-cameraLenses">${p.cameraLenses}</span></p>
           <p>Lagringsplass(størst): <span class="highlight-storage">${p.storage} GB</span></p>
           <p>RAM: <span class="highlight-ram">${p.ram} GB</span></p>
           <p>Vekt: <span class="highlight-weight">${p.weight} g</span></p>
@@ -360,10 +363,11 @@ function renderComparePanel() {
           <p>Max Kameraoppløsning: <span class="highlight-maxCameraResolution">${p.maxCameraResolution}K</span></p>
           <p>Maks kamera FPS: <span class="highlight-maxCameraFPS">${p.maxCameraFPS} FPS</span></p>
           <p>Batterikapasitet: <span  class="highlight-battery">${p.battery} mAh</span></p>
+          <p>Skjermoppdateringsfrekvens: <span class="highlight-refreshRateHz">${p.refreshRateHz} Hz</span></p>
+          <p>Bluetooth-versjon: <span class="highlight-bluetoothVersion">${p.bluetoothVersion}</span></p>
           <p>Chip: ${p.chip}</p>
         </div>
       `;
-    }
   });
 
   panel.innerHTML = html;
@@ -383,7 +387,7 @@ function renderComparePanel() {
  
 // Funksjon for å fremheve høyeste verdier i compareBox
 function highlightMaxValues() {
-  if (compareSlots.length === 0) return;
+  if (compareSlots.length < 2) return;
  
   // Hent elementene i panelet
   const panel = document.getElementById("compareBox");
@@ -399,7 +403,10 @@ function highlightMaxValues() {
     opticZoom: 0,
     maxCameraResolution: 0,
     battery: 0,
-    maxCameraFPS: 0
+    maxCameraFPS: 0,
+    refreshRateHz: 0,
+    cameraLenses: 0,
+    bluetoothVersion: 0
   };
  
   compareSlots.forEach(key => {
@@ -414,9 +421,12 @@ function highlightMaxValues() {
     maxValues.maxCameraResolution = Math.max(maxValues.maxCameraResolution, p.maxCameraResolution);
     maxValues.battery = Math.max(maxValues.battery, p.battery);
     maxValues.maxCameraFPS = Math.max(maxValues.maxCameraFPS, p.maxCameraFPS);
+    maxValues.refreshRateHz = Math.max(maxValues.refreshRateHz, p.refreshRateHz);
+    maxValues.cameraLenses = Math.max(maxValues.cameraLenses, p.cameraLenses);
+    maxValues.bluetoothVersion = Math.max(maxValues.bluetoothVersion, p.bluetoothVersion);
   });
- 
-  ["screen","storage","ram","weight","digitalZoom","opticZoom","maxCameraResolution", "maxCameraFPS", "battery"].forEach(prop => {
+
+  ["screen","storage","ram","weight","digitalZoom","opticZoom","maxCameraResolution", "maxCameraFPS", "battery", "refreshRateHz", "cameraLenses", "bluetoothVersion"].forEach(prop => {
     const owners = compareSlots.filter(key => phones[key] && phones[key][prop] === maxValues[prop]);
     const isUniqueMax = owners.length === 1;
  
@@ -440,19 +450,13 @@ function highlightMaxValues() {
  
 function addToCompare(key) {
   if (!phones[key]) return;
-  playSound(soundAdd);
-
   if (compareSlots.includes(key)) return;
-  const emptyIndex = compareSlots.indexOf("empty");
-  if (emptyIndex !== -1) {
-    compareSlots[emptyIndex] = key;
-  } else if (compareSlots.length < MAX_COMPARE) {
-    compareSlots.push(key);
- 
-  }
-  renderComparePanel(
-  )
-  highlightMaxValues()
+  if (compareSlots.length >= MAX_COMPARE) return;
+
+  compareSlots.push(key);
+  playSound(soundAdd);
+  renderComparePanel();
+  highlightMaxValues();
 }
  
  
