@@ -1,5 +1,7 @@
 // --- Header og footer ---
 document.getElementById("header").innerHTML = `
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <header>
     <a href ="startside.html"><h1>iPhone-nettside</h1></a>
     <button id="modeBtn">Dark / Light Mode</button>
@@ -20,9 +22,12 @@ document.getElementById("footer").innerHTML = `
 
 
 
-const soundAdd = new Audio("sounds/add.mp3");
-const soundRemove = new Audio("sounds/remove.mp3");
-const soundToggle = new Audio("sounds/toggle.mp3");
+const soundAdd = new Audio("sounds/add.wav");
+soundAdd.preload = "auto";
+const soundRemove = new Audio("sounds/remove.wav");
+soundRemove.preload = "auto";
+const soundToggle = new Audio("sounds/mode.wav");
+soundToggle.preload = "auto";
 
 function playSound(sound) {
   sound.currentTime = 0;
@@ -328,10 +333,16 @@ document.querySelectorAll(".group-btn").forEach(btn => {
 // --- Sammenlikning med dynamisk ledig slot ---
 // --- Sammenlikning med dynamisk ledig slot ---
 let compareSlots = []; // valgte modeller
-const MAX_COMPARE = window.innerWidth <= 768 ? 2 : 3;
+let MAX_COMPARE = window.innerWidth <= 768 ? 2 : 3;
  
 window.addEventListener("resize", () => {
-  maxCompare = window.innerWidth <= 768 ? 2 : 3;
+  MAX_COMPARE = window.innerWidth <= 768 ? 2 : 3;
+
+  if (compareSlots.length > MAX_COMPARE) {
+    compareSlots = compareSlots.slice(0, MAX_COMPARE);
+    renderComparePanel();
+    highlightMaxValues();
+  }
 });
  
 // Oppdater panel nederst
@@ -478,6 +489,7 @@ const body = document.body;
 document.addEventListener("click", (e) => {
   if (e.target.id === "modeBtn") {
     body.classList.toggle("dark-mode");
+    playSound(soundToggle);
  
     if (body.classList.contains("dark-mode")) {
       localStorage.setItem("theme", "dark");
