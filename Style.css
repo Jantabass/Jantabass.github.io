@@ -6,7 +6,6 @@
   --card: #fff;
   --header: #ddd;
   --muted: #444;
-  --footer_text_color: #fff;
   --accent-hover: #ff97bb;
   --accent: #ff2865;
   --button-bg: #ffffff;
@@ -275,93 +274,92 @@ header, footer {
  
 
 
-
-
 .hero-bg {
   background-image: linear-gradient(
-      rgba(0,0,0,0.45),
-      rgba(0,0,0,0.45)
+    rgba(0,0,0,0.45),
+    rgba(0,0,0,0.45)
     ),url("https://images.moneycontrol.com/static-mcnews/2024/05/20240517060743_daniel-romero-TpXoTb1uR5A-unsplash-2.jpg?impolicy=website&width=770&height=431");
-  background-size: cover;
-  background-position: center;
-  width: 100%;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  justify-content: center;
-  color: white;
-}
-
-
-.hero .less_big_hero h1 {
-  font-size: clamp(2.2rem, 5vw, 3.2rem);
-  margin-bottom: 16px;
-}
- 
-.hero .less_big_hero p {
-  font-size: 1.1rem;
-  max-width: 520px;
-  line-height: 1.6;
-  margin-bottom: 32px;
-  color: var(--text);
-}
- 
-.less_big_hero {
-  min-height: 60vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 40px 20px;
-}
- 
-.intro {
-  max-width: 700px;
-  margin: 80px auto;
-  padding: 32px 40px;
-  background: var(--card);
-  border-radius: 20px;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.15);
-  text-align: center;
-  align-items: center;
-  align-self: center;
-}
-
-.intro p {
-  font-size: 1.05rem;
-  line-height: 1.7;
-  color: var(--muted);
-}
-
-
-/* Button */
-.btn-primary {
-  background: var(--accent);
-  color: var(--text);
-  padding: 14px 28px;
-  border-radius: 999px;
-  font-size: 1rem;
-  font-weight: 600;
-  text-decoration: none;
-  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s;
-  box-shadow: 0 8px 20px rgba(0, 113, 227, 0.25);
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    color: white;
+  }
   
-}
- 
-.btn-primary:hover {
-  background: var(--accent-hover);
-  transform: translateY(-2px);
-  box-shadow: 0 12px 28px var(--bg1);
   
-}
- 
- 
- 
-.features {
-  max-width: 900px;
+  .hero .less_big_hero h1 {
+    font-size: clamp(2.2rem, 5vw, 3.2rem);
+    margin-bottom: 16px;
+  }
+  
+  .hero .less_big_hero p {
+    font-size: 1.1rem;
+    max-width: 520px;
+    line-height: 1.6;
+    margin-bottom: 32px;
+    color: var(--text);
+  }
+  
+  .less_big_hero {
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 40px 20px;
+  }
+  
+  .intro {
+    max-width: 700px;
+    margin: 80px auto;
+    padding: 32px 40px;
+    background: var(--card);
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+    text-align: center;
+    align-items: center;
+    align-self: center;
+  }
+  
+  .intro p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--muted);
+  }
+  
+  
+  /* Button */
+  .btn-primary {
+    background: var(--accent);
+    color: var(--text);
+    padding: 14px 28px;
+    border-radius: 999px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s;
+    box-shadow: 0 8px 20px rgba(0, 113, 227, 0.25);
+    
+  }
+  
+  .btn-primary:hover {
+    background: var(--accent-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px var(--bg1);
+    
+  }
+  
+  
+  
+  
+  .features {
+    max-width: 900px;
   margin: 0 auto 60px;
   padding: 0 20px;
   justify-content: center;
@@ -521,6 +519,7 @@ footer ul {
   display: flex;
   justify-content: center;
   gap: 20px;
+  color:var()
 }
 
 footer ul li a, footer p {
@@ -557,63 +556,93 @@ footer p {
   padding: 60px 20px;
 }
 
-.lister {
-  max-width: 700px;             /* begrenser bredden */
-  margin: 40px auto;            /* sentrerer div-en */
-  padding: 30px 40px;           /* god luft inni */
-  background: rgba(255, 255, 255, 0.1); /* glassaktig bakgrunn */
-  backdrop-filter: blur(10px);  /* blurry effekt bak */
-  border-radius: 20px;          /* avrundede hjørner */
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25); /* dybde */
-  color: var(--text);
+.liste1, .liste2 {
+  width: 40%;
+  margin: 24px auto;
+  padding: 20px 24px;
+  border-radius: 14px;
+  margin-right: 55%;
+  margin-bottom: 12%;
+  
+
 }
 
-  .lister ul,
-.lister ol {
-  padding-left: 20px;
-  margin-bottom: 30px;
+.liste1 p, .liste2 p {
+  margin: 0 0 8px;
+  font-weight: 700;
 }
 
-.lister ul li,
-.lister ol li {
-  margin-bottom: 12px;
-  font-size: 1.05rem;
-  line-height: 1.6;
+.liste1 ul, .liste2 ul {
+  list-style: none;
+  margin: 12px 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px 20px;
+}
+
+.liste1 li, .liste2 li {
   position: relative;
-  padding-left: 20px;
+  padding-left: 40px;
+  font-weight: 600;
+  color: var(--bg1);
+  align-items: center;
+  display: flex;
+  min-height: 36px;
 }
 
-
-.lister ul li::before {
-  content: "•";                
+.liste1 li::before, .liste2 li::before {
+  content: "✓";
   position: absolute;
-  left: 0;
-  color: var(--accent);         
-  font-weight: bold;
+  left: 6px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--accent);
+  color: #fff;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.8rem;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.12);
 }
 
-.lister ol {
-  counter-reset: section;
+.liste1, .liste2 {
+  background-image: linear-gradient(
+        rgba(0,0,0,0.45),
+        rgba(0,0,0,0.45)
+      ),url(https://www.shutterstock.com/image-photo/work-safety-compliance-concept-first-600nw-2496532679.jpg);
+    background-size: cover;
+    background-position: center;
+    min-height: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+  
+    
 }
 
-.lister ol li {
-  list-style: none; /* fjerner standard nummer */
+.liste2{
+  background-image: linear-gradient(
+        rgba(0,0,0,0.45),
+        rgba(0,0,0,0.45)
+      ),url(https://www.urmaker-bjerke.no/_next/image?url=https%3A%2F%2Fwww.urmaker-bjerke.no%2Fapp%2Fuploads%2F2024%2F07%2FLongines_Banner2.jpg&w=3840&q=75);
+  background-position: 70% center;
+  
 }
 
-.lister ol li::before {
-  counter-increment: section;
-  content: counter(section) ". ";
-  color: var(--accent);
-  font-weight: bold;
-  position: absolute;
-  left: 0;
+
+.list-wrapper {
+  max-width: 100%;
+  height: 500px;
+  margin: 32px auto;
+  display: flex;
 }
 
-/* Margin på p inni lister-diven */
-.lister p {
-  text-align: center;
-  margin: 20px 0;
-  font-weight: 500;
-  color: var(--text);}
+
 
 
