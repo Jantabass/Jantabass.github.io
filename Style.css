@@ -44,7 +44,7 @@ body {
   padding: 0;
   background-repeat: no-repeat;
   min-height: 100vh;
-  display: flex;
+  display: grid;
   flex-direction: column;
   background-attachment: fixed;
 }
@@ -122,8 +122,8 @@ header, footer {
     text-align: center;
   }
   #compareBox {
-    justify-content: space-between;
-    display: flex;
+  justify-content: space-between;
+  display: flex;
   flex-wrap: wrap; /* viktig for å tillate flere rader */
   gap: 3%;
   width: 100%;
@@ -185,7 +185,7 @@ header, footer {
 
 #compareBox {
   margin-top: 30px;
-    display: flex;
+  display: flex;
   flex-wrap: wrap;      /* neste rad hvis mer enn 3 */
   gap: 3%;              /* mellomrom mellom telefonene */
   justify-content: center;
@@ -427,6 +427,7 @@ header, footer {
   border-radius: 8px;
   cursor: pointer;
   margin-bottom: 8px;
+  color:var(--footer_text_color)
 }
  
 .qa-answer {
@@ -503,11 +504,13 @@ header a {
   color: inherit;
 }
  
-footer {
+#footer {
   background: var(--bg1);
-  padding: 30px 20px;
+  padding: 10px 5px;
   box-shadow: 0 -6px 20px rgba(0,0,0,0.25);
   margin-bottom: 0%;
+  align-self: end;
+
 }
 
 
@@ -519,7 +522,7 @@ footer ul {
   display: flex;
   justify-content: center;
   gap: 20px;
-  color:var()
+  color: var(--footer_text_color);
 }
 
 footer ul li a, footer p {
@@ -642,6 +645,21 @@ footer p {
   margin: 32px auto;
   display: flex;
 }
+
+h4 {
+  text-align: center;
+  color: var(--bg1);
+  font-size: 20px;
+  color:var(--footer_text_color)
+}
+
+.iframe {
+  width: 10%;
+  max-height: 500px;
+}
+
+
+
 
 
 
