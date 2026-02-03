@@ -438,7 +438,6 @@ function renderComparePanel() {
      if (key === "empty") {
         html += `
           <div class="compare_phone empty">
-            <h3>Tom plass</h3>
           </div>
         `;
         return;
