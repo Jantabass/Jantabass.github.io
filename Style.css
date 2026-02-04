@@ -144,35 +144,6 @@ html, body {
 .group {
   flex: 0 0 calc(33.333% - 20px);
 }
-@media (max-width: 600px) {
-  .phone-groups {
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  .group {
-    width: 100%;
-  }
-
-  .group-btn {
-    font-size: 1.1rem;
-    padding: 16px;
-    text-align: center;
-  }
-  #compareBox {
-  justify-content: space-between;
-  display: flex;
-  flex-wrap: wrap; /* viktig for å tillate flere rader */
-  gap: 3%;
-  width: 100%;
-  }
-
-  .compare_phone, .compare_phone.empty {
-    flex: 0 0 48%;
-    max-width: 48%;
-  }
-}
-
 
 
 
@@ -445,7 +416,7 @@ header {
   align-items: center;
   padding: 20px 40px;
   color: #fff;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+  box-shadow: 0 6px 10px #00000030;
   margin-bottom: 0%;
 }
  
@@ -462,8 +433,9 @@ header a {
 footer {
   background: var(--bg3);
   padding: 30px 20px;
-  box-shadow: 0 -6px 20px rgba(0,0,0,0.25);
+  box-shadow: 0 -6px 2px var(--bg3);
   margin-bottom: 0%;
+  margin-top: 20vh;
 }
 
 
@@ -494,6 +466,20 @@ footer p {
   margin: 0;
   font-size: 0.85rem;
 }
+
+ 
+footer ul {
+  list-style: none;
+  padding: 0;
+  margin: 15px 0 0;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  color: var(--footer_text_color);
+}
+
+
+
 
 
  
@@ -584,63 +570,10 @@ footer p {
 
 
 
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 40px;
-  background: linear-gradient(135deg, var(--accent), var(--accent-hover));
-  color: #fff;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
-  margin-bottom: 0%;
-}
- 
-header h1 {
-  margin: 0;
-  font-size: 1.8rem;
-}
- 
-header a {
-  text-decoration: none;
-  color: inherit;
-}
- 
-#footer {
-  background: var(--bg1);
-  box-shadow: 0 -6px 20px rgba(0,0,0,0.25);
-  margin-bottom: 0%;
-  align-self: end;
-
-}
-
 
  
-footer ul {
-  list-style: none;
-  padding: 0;
-  margin: 15px 0 0;
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  color: var(--footer_text_color);
-}
 
-footer ul li a, footer p {
-  color: var(--text);
-  font-size: 0.9rem;
-  transition: color 0.2s ease;
-  text-decoration: none;
-}
- 
-footer ul li a:hover {
-  color: var(--accent);
-  text-decoration: none;
-}
- 
-footer p {
-  margin: 0;
-  font-size: 0.85rem;
-}
+
 
 .hero-bg-om-oss {
   background-image: linear-gradient(
@@ -757,6 +690,48 @@ h4 {
 
 
 
+
+@media (max-width: 600px) { 
+  header {
+    margin-left: 0%;
+    text-align: left;
+    align-items: flex-start;
+  }
+  header a {
+    margin-right: 0%;
+  }
+  
+  #modeBtn {
+    padding: 1vw;
+    font-size: 0.8em;
+  }
+  .phone-groups {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .group {
+    width: 100%;
+  }
+
+  .group-btn {
+    font-size: 1.1rem;
+    padding: 16px;
+    text-align: center;
+  }
+  #compareBox {
+  justify-content: space-between;
+  display: flex;
+  flex-wrap: wrap; /* viktig for å tillate flere rader */
+  gap: 3%;
+  width: 100%;
+  }
+
+  .compare_phone, .compare_phone.empty {
+    flex: 0 0 48%;
+    max-width: 48%;
+  }
+}
 
 
 
