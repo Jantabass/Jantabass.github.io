@@ -56,6 +56,24 @@ function removeFromCompare(key) {
  
  
 const phones = {
+
+  emptyphone: {
+    name: null,
+    screen: null,
+    camera: null,
+    storage: null,
+    battery: null,
+    chip: null,
+    weight: null,
+    ram: null,
+    cameraLenses: null,
+    digitalZoom: null,
+    opticZoom: null,
+    refreshRateHz: null,
+    maxCameraResolution: null,
+    maxCameraFPS: null,
+  }
+  ,
   iphone13: {
     name: "iPhone 13",
     screen: 6.1,
@@ -427,29 +445,8 @@ window.addEventListener("resize", () => {
 // Oppdater panel nederst
 
 
-
-
-
-function renderComparePanel() {
-
-  if (compareSlots.length === 0) {
-  compareSlots = ["empty"];
-}
-  const panel = document.getElementById("compareBox");
-  if (!panel) return;
-
-  let html = ""; // start på nytt hver gang
-
-  compareSlots.forEach((key) => {
-     if (key === "empty") {
-        html += `
-          <div class="compare_phone empty">
-          </div>
-        `;
-        return;
-     }
-      const p = phones[key];
-      html += `
+function showPhoneSpecs(key) {
+`
         <div class="compare_phone">
           <button class="remove-btn" data-key="${key}">Fjern</button>
           <h3>${p.name}</h3>
@@ -468,7 +465,23 @@ function renderComparePanel() {
           <p>Bluetooth-versjon: <span class="highlight-bluetoothVersion">${p.bluetoothVersion}</span></p>
           <p>Chip: ${p.chip}</p>
         </div>
-      `;
+      `
+}
+
+
+function renderComparePanel() {
+
+  if (compareSlots.length === 0) {
+  compareSlots = phones[emptyphone];
+}
+  const panel = document.getElementById("compareBox");
+  if (!panel) return;
+
+  let html = ""; // start på nytt hver gang
+
+  compareSlots.forEach((key) => {
+      const p = phones[key];
+      html += showPhoneSpecs(key);
   });
 
   panel.innerHTML = html;

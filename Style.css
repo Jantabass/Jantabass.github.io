@@ -59,6 +59,7 @@ body {
 body {
     opacity: 0;
     transition: opacity 0.5s ease-in-out;
+    text-align: center;
 }
 
 body.fade-in {
@@ -76,7 +77,10 @@ html, body {
   font-size: calc(0.6rem + 0.5vw);
 }
  
-
+.centralize {
+  align-items: center;
+  text-align: center;
+}
  
  
 
@@ -218,7 +222,11 @@ html, body {
 
 
 }
- 
+
+.compare_phone.empty {
+  min-height: 30.5vh;
+}
+
 .compare_phone, .compare_phone.empty  {
   background: var(--card);
   border-radius: 0.75rem;
