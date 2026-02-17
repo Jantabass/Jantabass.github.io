@@ -26,6 +26,77 @@ document.getElementById("footer").innerHTML = `
   });
 
 
+const translations = {
+  no: {
+    title: "b",
+    compareTitle: "Sammenlikn iPhone-modeller",
+    question1: "Hvilken iPhone passer meg best?",
+    answer1: "Det avhenger av budsjett, bruk og behov. Sammenlikn modellene for riktig valg.",
+    question2: "Er nyeste iPhone alltid best?",
+    answer2: "Nei. Eldre modeller kan være mer enn gode nok for de fleste.",
+
+    question3: "Kan jeg bestille iphone-modeller fra nettsiden?",
+    answer3: "Nei, det er ikke mulig.",
+
+    question4: "Er all informasjon om de forskjellige modellene sanne?",
+    answer4: "Ja, informasjonen er basert på offisielle spesifikasjoner fra Apple, tatt i betraktning at man kan oppleve små variasjoner i praksis. Det er heller ingen garanti for at det Apple oppgir stemmer 100% med virkeligheten."
+  },
+
+  en: {
+    title: "y",
+    compareTitle: "Sammenlikn iPhone-modeller",
+      question1: "How much does an iPhone cost?",
+      answer1: "This website does not provide pricing information. We only provide technical specifications for the various models.",
+
+      question2: "Is the newest iPhone always the best?",
+      answer2: "No. Older models can be more than good enough for most people.",
+
+      question3: "Can I order iPhone models from this website?",
+      answer3: "No, that is not possible.",
+
+      question4: "Is all the information about the different models true?",
+      answer4: "Yes, the information is based on official specifications from Apple, although small variations may occur in practice. There is no guarantee that everything Apple states is 100% accurate."
+}
+}
+let currentLang = "en"; // Bytt mellom "no" og "en"
+
+
+function toggleLanguage() {
+  currentLang = (currentLang === "no") ? "en" : "no";
+  localStorage.setItem("preferredLang", currentLang); // Lagrer valget til neste besøk
+  updateAllText(); // Oppdaterer alt på siden umiddelbart
+}
+
+function updateAllText() {
+  const lang = translations[currentLang];
+
+  Object.keys(lang).forEach(key => {
+    const element = document.getElementById(key);
+    if (element) {
+      element.innerText = lang[key];
+    }
+  });
+
+  // Oppdater Header/Footer (siden disse er dynamiske)
+  renderHeader();
+  renderFooter();
+
+  // Oppdater Q&A-løkken
+  renderQA();
+}
+
+let qaHtml = "";
+
+for (let i = 1; i <= 4; i++) {
+  qaHtml += `
+  <button class="qa-question">${lang['question'+i]}</button>
+  <div class="qa-answer">
+    <p>${lang['answer'+i]}</p>
+  </div>
+  `;
+}
+document.getElementById("qa-container").innerHTML = qaHtml;
+
 const soundAdd = new Audio("sounds/add.wav");
 soundAdd.preload = "auto";
 const soundRemove = new Audio("sounds/remove.wav");
@@ -58,7 +129,7 @@ function removeFromCompare(key) {
 const phones = {
 
   emptyphone: {
-    name: null,
+    name: "Tom plass",
     screen: null,
     camera: null,
     storage: null,
@@ -427,7 +498,7 @@ document.querySelectorAll(".group-btn").forEach(btn => {
 // --- Sammenlikning med ledig slot og mørk skygge ---
 // --- Sammenlikning med dynamisk ledig slot ---
 // --- Sammenlikning med dynamisk ledig slot ---
-let compareSlots = ["empty"];
+let compareSlots = ["emptyphone"];
 
 
 let MAX_COMPARE = window.innerWidth <= 768 ? 2 : 3;
@@ -446,52 +517,61 @@ window.addEventListener("resize", () => {
 
 
 function showPhoneSpecs(key) {
-`
+  const p = phones[key];
+  if (!p) return "";
+    return `
         <div class="compare_phone">
-          <button class="remove-btn" data-key="${key}">Fjern</button>
+         ${key !== "emptyphone" ? `<button class="remove-btn" data-key="${key}">Fjern</button>` : ""}
           <h3>${p.name}</h3>
-          <p>Skjerm: <span class="highlight-screen">${p.screen}</span></p>
-          <p>Kamera: ${p.camera}</p>
-          <p>Antall linser: <span class="highlight-cameraLenses">${p.cameraLenses}</span></p>
-          <p>Lagringsplass(størst): <span class="highlight-storage">${p.storage} GB</span></p>
-          <p>RAM: <span class="highlight-ram">${p.ram} GB</span></p>
-          <p>Vekt: <span class="highlight-weight">${p.weight} g</span></p>
-          <p>Optisk zoom: <span class="highlight-opticZoom">${p.opticZoom}x</span></p>
-          <p>Digital zoom: <span class="highlight-digitalZoom">${p.digitalZoom}x</span></p>
-          <p>Max Kameraoppløsning: <span class="highlight-maxCameraResolution">${p.maxCameraResolution}K</span></p>
-          <p>Maks kamera FPS: <span class="highlight-maxCameraFPS">${p.maxCameraFPS} FPS</span></p>
-          <p>Batterikapasitet: <span  class="highlight-battery">${p.battery} mAh</span></p>
-          <p>Skjermoppdateringsfrekvens: <span class="highlight-refreshRateHz">${p.refreshRateHz} Hz</span></p>
-          <p>Bluetooth-versjon: <span class="highlight-bluetoothVersion">${p.bluetoothVersion}</span></p>
-          <p>Chip: ${p.chip}</p>
+          <p>Skjerm: ${key !== "emptyphone" ? `<span class="highlight-screen">${p.screen}</span>` : ""} </p>
+          <p>Kamera: ${key !== "emptyphone" ? `${p.camera}` : ""}</p>
+          <p>Antall linser: ${key !== "emptyphone" ? `<span class="highlight-cameraLenses">${p.cameraLenses}</span>` : ""}</p>
+          <p>Lagringsplass(størst): ${key !== "emptyphone" ? `<span class="highlight-storage">${p.storage} GB</span>` : ""}</p>
+          <p>RAM: ${key !== "emptyphone" ? `<span class="highlight-ram">${p.ram} GB</span>` : ""}</p>
+          <p>Vekt: ${key !== "emptyphone" ? `<span class="highlight-weight">${p.weight} g</span>` : ""}</p>
+          <p>Optisk zoom: ${key !== "emptyphone" ? `<span class="highlight-opticZoom">${p.opticZoom}x</span>` : ""}</p>
+          <p>Digital zoom: ${key !== "emptyphone" ? `<span class="highlight-digitalZoom">${p.digitalZoom}x</span>` : ""}</p>
+          <p>Max Kameraoppløsning: ${key !== "emptyphone" ? `<span class="highlight-maxCameraResolution">${p.maxCameraResolution}K</span>` : ""}</p>
+          <p>Maks kamera FPS: ${key !== "emptyphone" ? `<span class="highlight-maxCameraFPS">${p.maxCameraFPS} FPS</span>` : ""}</p>
+          <p>Batterikapasitet: ${key !== "emptyphone" ? `<span  class="highlight-battery">${p.battery} mAh</span>` : ""}</p>
+          <p>Skjermoppdateringsfrekvens: ${key !== "emptyphone" ? `<span class="highlight-refreshRateHz">${p.refreshRateHz} Hz</span>` : ""}</p>
+          <p>Bluetooth-versjon: ${key !== "emptyphone" ? `<span class="highlight-bluetoothVersion">${p.bluetoothVersion}</span>` : ""}</p>
+          <p>Chip: ${key !== "emptyphone" ? `${p.chip}` : ""}</p>
         </div>
-      `
+      `;
 }
 
 
 function renderComparePanel() {
-
-  if (compareSlots.length === 0) {
-  compareSlots = phones[emptyphone];
-}
+  
   const panel = document.getElementById("compareBox");
   if (!panel) return;
-
+  
   let html = ""; // start på nytt hver gang
-
+  
+  if (compareSlots.length === 0) {
+    compareSlots.push("emptyphone");
+  }
+  
+  if (compareSlots.length > 1 && compareSlots.includes("emptyphone")) {
+    compareSlots = compareSlots.filter( k =>k !== "emptyphone");
+  }
+  
   compareSlots.forEach((key) => {
-      const p = phones[key];
-      html += showPhoneSpecs(key);
+    const p = phones[key];
+    html += showPhoneSpecs(key);
   });
-
+  
   panel.innerHTML = html;
-
-  // Fjern-knapper
+  
   panel.querySelectorAll(".remove-btn").forEach(btn => {
     btn.addEventListener("click", () => {
       removeFromCompare(btn.dataset.key);
     });
   });
+  console.log(compareSlots.length)
+  
+  // Fjern-knapper
 }
 
 
@@ -629,3 +709,6 @@ setInterval(() => {
   currentSlide = (currentSlide + 1) % slides.length;
   slides[currentSlide].classList.add("active");
 }, 5000);
+
+
+updateAllText();
