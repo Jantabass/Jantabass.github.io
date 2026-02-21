@@ -801,9 +801,62 @@ setInterval(() => {
   slides[currentSlide].classList.add("active");
 }, 5000);
 
+HEAD
 
 document.addEventListener("DOMContentLoaded", function() {
   updateAllText();
 });
 
 updateAllText();
+
+document.addEventListener('DOMContentLoaded', () => {
+  const forms = document.querySelectorAll('.contact-form');
+  const successBox = document.getElementById('successBox');
+
+  if (!successBox) return;
+
+  // Sørg for at boksen starter skjult
+  successBox.classList.remove('show');
+  successBox.setAttribute('aria-hidden', 'true');
+
+  function showSuccess() {
+    successBox.classList.add('show');
+    successBox.setAttribute('aria-hidden', 'false');
+
+    const btn = successBox.querySelector('button');
+    if (btn) btn.focus();
+  }
+
+  function closeBox() {
+    successBox.classList.remove('show');
+    successBox.setAttribute('aria-hidden', 'true');
+  }
+
+  // Gjør closeBox tilgjengelig for onclick
+  window.closeBox = closeBox;
+
+  forms.forEach(form => {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      // Sjekk validering
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+
+      // Her kan du sende til server hvis ønskelig
+      // fetch('/api/send', { method: 'POST', body: new FormData(form) })
+
+      // Vis popup
+      showSuccess();
+
+      // Nullstill skjema
+      form.reset();
+
+      // Lukk automatisk etter 5 sekunder
+      setTimeout(closeBox, 5000);
+    });
+  });
+});
+
