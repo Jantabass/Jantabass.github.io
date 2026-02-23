@@ -196,17 +196,7 @@ function updateAllText() {
     if (element) {
       element.innerText = lang[key];
     }
-  });
-  if (document.getElementById("qa-container")) {
-    addquestionsAndAnswers(lang);
-  }
-  
-  if (document.getElementById("qa-container-compare")) {
-    addquestionandAnswerscompare(lang);
-  }
-  
-  
-  
+  });  
 }
 
 function toggleLanguage() {
@@ -851,14 +841,23 @@ setInterval(() => {
 
 document.addEventListener("DOMContentLoaded", function() {
   updateAllText();
-  const qaBtn = document.getElementById("comparequestion");
-  const qaAnswer = document.querySelector(".qa-answer");
-  if (qaBtn && qaAnswer) {
-    qaBtn.addEventListener("click", function() {
-      qaAnswer.classList.toggle("show");
-    });
-  }
+  
 });
+
+
+// ...existing code...
+
+document.querySelectorAll(".qa-question").forEach(button => {
+  button.addEventListener("click", function () {
+    const answerId = this.id.replace("question", "answer");
+    const answer = document.getElementById(answerId);
+    answer.classList.toggle("show");
+  });
+});
+
+// ...existing code...
+
+
 
 updateAllText();
 

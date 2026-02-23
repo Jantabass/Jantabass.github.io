@@ -553,11 +553,19 @@ footer ul {
 .qa-answer {
   display: none;
   padding: 0 15px 15px;
-  color: var(--muted);
+  color: var(--text);
   text-align: left;
   line-height: 1.9;
 }
- 
+
+
+.qa-answer {
+  display: none;
+}
+
+.qa-answer.show {
+  display: block;
+}
  
 #modeBtn, .dropbtn {
   border-radius: 13px;
