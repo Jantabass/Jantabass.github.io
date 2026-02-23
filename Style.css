@@ -186,10 +186,32 @@ html, body {
   flex: 0 0 calc(33.333% - 20px);
 }
 
+#modeBtn {
+  width: 44px;
+  height: 44px;
+  padding: 6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: var(--primary-btn-bg);
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
 
+#modeBtn img {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+  display: block;
 
+}
 
-
+@media (max-width: 600px) {
+  #modeBtn { width: 40px; height: 40px; padding: 5px; }
+  #modeBtn img { width: 20px; height: 20px; }
+}
 
 .group-phones {
   display: none;      /* skjult som standard */
