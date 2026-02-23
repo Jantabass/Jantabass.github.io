@@ -167,7 +167,7 @@ const translations = {
     email: "Email",
     phone: "Phone",
     sendMsg: "Send message",
-    successMsg: "✅ Thank you for your message!",
+    successMsg: " Thank you for your message!",
     close: "Close",
 
 
