@@ -5,7 +5,7 @@ document.getElementById("header").innerHTML = `
 
   <header>
     <a href ="startside.html"><h1>iPhone-nettside</h1></a>
-    <button id="modeBtn">B</button>
+    <button id="modeBtn"><img src="images/mode knappen.png"></button>
     <div class="dropdown">
   <button id="language" class="dropbtn" onclick="toggleMenu()"></button>
   <div id="menu" class="dropdown-content">
