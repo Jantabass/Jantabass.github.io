@@ -187,9 +187,10 @@ html, body {
 }
 
 #modeBtn {
-  width: 44px;
-  height: 44px;
-  padding: 6px;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  overflow: hidden;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -201,9 +202,9 @@ html, body {
 }
 
 #modeBtn img {
-  width: 30px;
-  height: 30px;
-  object-fit: contain;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   display: block;
 
 }

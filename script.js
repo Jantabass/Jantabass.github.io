@@ -5,7 +5,7 @@ document.getElementById("header").innerHTML = `
 
   <header>
     <a href ="startside.html"><h1>iPhone-nettside</h1></a>
-    <button id="modeBtn"><img src="images/mode knappen.png"></button>
+    <img src="images/mode knappen.png" id="modeBtn" alt="Bytt modus">
     <div class="dropdown">
   <button id="language" class="dropbtn" onclick="toggleMenu()"></button>
   <div id="menu" class="dropdown-content">
@@ -92,7 +92,7 @@ const translations = {
     email: "E-post",
     phone: "Telefon",
     sendMsg: "Send melding",
-    successMsg: "✅ Takk for din melding!",
+    successMsg: " Takk for din melding!",
     close: "Lukk",
 
 
