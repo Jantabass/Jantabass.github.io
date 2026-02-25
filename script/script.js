@@ -4,7 +4,7 @@ document.getElementById("header").innerHTML = `
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <header>
-    <a href ="startside.html"><h1>ClearPhone</h1></a>
+    <a href ="../index.html"><h1>ClearPhone</h1></a>
     <img src="../images/mode_knappen_cropped2.png" id="modeBtn" alt="Bytt modus">
     <div class="dropdown">
   <button class="dropbtn translate-language" onclick="toggleMenu()"></button>
