@@ -264,7 +264,7 @@ function toggleMenu() {
   });
 }
 
-// ...existing code...
+
 function setLanguage(lang) {
   currentLang = lang;
   localStorage.setItem("preferredLang", currentLang);
@@ -294,7 +294,7 @@ function playSound(sound) {
   sound.play();
 }
 
-// Initial tomme plasser
+
  
  
 // --- iPhone-data ---
@@ -844,7 +844,7 @@ renderComparePanel(currentLang);
 highlightMaxValues();
  
  
-// --- Dark / Light mode ---
+
 const body = document.body;
  
 document.addEventListener("click", (e) => {
@@ -903,6 +903,8 @@ document.querySelectorAll(".qa-question").forEach(button => {
 
 updateAllText();
 
+
+// pop-up for kontakt oss
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.querySelector('.contact-form');
   const successBox = document.getElementById('successBox');
