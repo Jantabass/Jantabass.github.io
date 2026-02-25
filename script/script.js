@@ -287,15 +287,15 @@ function setLanguage(lang) {
 }
 
 
-const soundAdd = new Audio("sounds/add.wav");
+const soundAdd = new Audio("${getbasePath()}sounds/add.wav");
 soundAdd.preload = "auto";
-const soundRemove = new Audio("sounds/remove.wav");
+const soundRemove = new Audio("${getbasePath()}sounds/remove.wav");
 soundRemove.preload = "auto";
-const soundToggle = new Audio("sounds/mode.wav");
+const soundToggle = new Audio("${getbasePath()}sounds/mode.wav");
 soundToggle.preload = "auto";
-const soundGroupOpen = new Audio("sounds/group_open.wav");
+const soundGroupOpen = new Audio("${getbasePath()}sounds/group_open.wav");
 soundGroupOpen.preload = "auto";
-const soundGroupClose = new Audio("sounds/group_close.wav");
+const soundGroupClose = new Audio("${getbasePath()}sounds/group_close.wav");
 soundGroupClose.preload = "auto";
 
 function playSound(sound) {
