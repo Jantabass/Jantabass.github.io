@@ -20,10 +20,10 @@ document.getElementById("footer").innerHTML = `
   <footer>
     <p>© 2026 ClearPhone</p>
     <ul>
-      <li><a class="translate-aboutUs" href="../html/om_oss.html">Om oss</a></li>
-      <li><a class="translate-contactUs" href="../html/kontakt_oss.html">Kontakt oss</a></li>
-      <li><a class="translate-career" href="../html/karriere.html">Jobb hos oss</a></li>
-      <li><a class="translate-faq" href="../html/q&a.html">Spørsmål og svar</a></li>
+      <li><a class="translate-aboutUs" href="${getBasePath()}html/om_oss.html">Om oss</a></li>
+      <li><a class="translate-contactUs" href="${getBasePath()}html/kontakt_oss.html">Kontakt oss</a></li>
+      <li><a class="translate-career" href="${getBasePath()}html/karriere.html">Jobb hos oss</a></li>
+      <li><a class="translate-faq" href="${getBasePath()}html/q&a.html">Spørsmål og svar</a></li>
     </ul>
   </footer>
 `;
