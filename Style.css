@@ -887,13 +887,12 @@ h2,h3{
     border-radius: 10px;
     border: 1px solid rgba(0,0,0,0.15);
     outline: none;
-    background: rgba(255,255,255,0.8);
 }
 
-contact-form input::placeholder,
+/* .contact-form input::placeholder,
 .contact-form textarea::placeholder {
   color: rgba(0,0,0,0.5);
-}
+} */
 
 /* Dark mode: mørk bakgrunn + lys tekst */
 body.dark-mode .contact-form input,
@@ -905,25 +904,25 @@ body.dark-mode .contact-form textarea {
 }
 
 /* Placeholder for dark mode */
-body.dark-mode .contact-form input::placeholder,
+/* body.dark-mode .contact-form input::placeholder,
 body.dark-mode .contact-form textarea::placeholder {
   color: rgba(255,255,255,0.6);
-}
+} */
 
 /* Fokusstil i dark mode */
-body.dark-mode .contact-form input:focus,
+/* body.dark-mode .contact-form input:focus,
 body.dark-mode .contact-form textarea:focus {
   box-shadow: 0 0 0 3px rgba(255,255,255,0.04);
   border-color: rgba(255,255,255,0.12);
-}
+} */
 
 /* Fokus-effekt */
-.contact-form input:focus,
+/* .contact-form input:focus,
 .contact-form textarea:focus {
     border-color: var(--accent-hover);
     box-shadow: 0 0 0 3px rgba(0, 150, 255, 0.15);
     background: var(--bg3);
-}
+} */
 
 /* Tekstområde */
 .contact-form textarea {
