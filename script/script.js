@@ -5,7 +5,7 @@ document.getElementById("header").innerHTML = `
 
   <header>
     <a href ="../index.html"><h1>ClearPhone</h1></a>
-    <img src="../images/mode_knappen_cropped2.png" id="modeBtn" alt="Bytt modus">
+    <img src="${getBasePath()}images/mode_knappen_cropped2.png" id="modeBtn" alt="Bytt modus">
     <div class="dropdown">
   <button class="dropbtn translate-language" onclick="toggleMenu()"></button>
   <div id="menu" class="dropdown-content">
@@ -27,6 +27,15 @@ document.getElementById("footer").innerHTML = `
     </ul>
   </footer>
 `;
+
+
+function getBasePath() {
+  const path = window.location.pathname;
+  if (path.includes('/html/')) {
+    return '../';
+  }
+  return '';
+}
 
 // Add to your HTML file (before closing body tag)
   document.addEventListener("DOMContentLoaded", function() {
