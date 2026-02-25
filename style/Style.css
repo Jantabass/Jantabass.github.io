@@ -338,7 +338,7 @@ html, body {
     rgba(0,0,0,0.45),
     rgba(0,0,0,0.45)
     ),
-    url("images/hero-image.png");
+    url("../images/hero-image.png");
     background-size: cover;
     background-position: center;
     width: 100%;
