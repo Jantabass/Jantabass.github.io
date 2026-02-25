@@ -5,7 +5,7 @@ document.getElementById("header").innerHTML = `
 
   <header>
     <a href ="startside.html"><h1>ClearPhone</h1></a>
-    <img src="images/mode_knappen_cropped2.png" id="modeBtn" alt="Bytt modus">
+    <img src="../images/mode_knappen_cropped2.png" id="modeBtn" alt="Bytt modus">
     <div class="dropdown">
   <button class="dropbtn translate-language" onclick="toggleMenu()"></button>
   <div id="menu" class="dropdown-content">
@@ -20,10 +20,10 @@ document.getElementById("footer").innerHTML = `
   <footer>
     <p>© 2026 ClearPhone</p>
     <ul>
-      <li><a class="translate-aboutUs" href="om_oss.html">Om oss</a></li>
-      <li><a class="translate-contactUs" href="kontakt_oss.html">Kontakt oss</a></li>
-      <li><a class="translate-career" href="karriere.html">Jobb hos oss</a></li>
-      <li><a class="translate-faq" href="q&a.html"></a></li>
+      <li><a class="translate-aboutUs" href="../html/om_oss.html">Om oss</a></li>
+      <li><a class="translate-contactUs" href="../html/kontakt_oss.html">Kontakt oss</a></li>
+      <li><a class="translate-career" href="../html/karriere.html">Jobb hos oss</a></li>
+      <li><a class="translate-faq" href="../html/q&a.html">Spørsmål og svar</a></li>
     </ul>
   </footer>
 `;
