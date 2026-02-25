@@ -4,7 +4,7 @@ document.getElementById("header").innerHTML = `
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <header>
-    <a href ="startside.html"><h1>iPhone-nettside</h1></a>
+    <a href ="startside.html"><h1>ClearPhone</h1></a>
     <img src="images/mode_knappen_cropped2.png" id="modeBtn" alt="Bytt modus">
     <div class="dropdown">
   <button class="dropbtn translate-language" onclick="toggleMenu()"></button>
@@ -18,7 +18,7 @@ document.getElementById("header").innerHTML = `
  
 document.getElementById("footer").innerHTML = `
   <footer>
-    <p>© 2026 Vår nettside</p>
+    <p>© 2026 ClearPhone</p>
     <ul>
       <li><a class="translate-aboutUs" href="om_oss.html">Om oss</a></li>
       <li><a class="translate-contactUs" href="kontakt_oss.html">Kontakt oss</a></li>
@@ -695,10 +695,12 @@ function showPhoneSpecs(key, currentLang) {
   const p = phones[key];
   const lang = translations[currentLang];
   if (!p) return "";
+
+  const phoneName = key === "emptyphone" ? lang.empty : p.name;
     return `
         <div class="compare_phone">
          ${key !== "emptyphone" ? `<button class="remove-btn" id="remove" data-key="${key}">Fjern</button>` : ""}
-          <h3>${p.name}</h3>
+          <h3>${phoneName}</h3>
           <p>${lang.screen} ${key !== "emptyphone" ? `<span class="highlight-screen">${p.screen}"</span>` : ""} </p>
           <p>${lang.camera} ${key !== "emptyphone" ? `${p.camera}` : ""}</p>
           <p>${lang.cameraLenses} ${key !== "emptyphone" ? `<span class="highlight-cameraLenses">${p.cameraLenses}</span>` : ""}</p>
