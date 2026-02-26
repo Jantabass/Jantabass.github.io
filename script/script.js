@@ -310,7 +310,7 @@ function playSound(sound) {
 function removeFromCompare(key) {
   compareSlots = compareSlots.filter(p => p !== key);
   playSound(soundRemove);
-  renderComparePanel();
+  renderComparePanel(currentLang);
   highlightMaxValues();
 }
  
@@ -729,7 +729,7 @@ function showPhoneSpecs(key, currentLang) {
 }
 
 
-function renderComparePanel(currentLang) {
+function renderComparePanel(lang = currentLang) {
   
   const panel = document.getElementById("compareBox");
   if (!panel) return;
@@ -746,7 +746,7 @@ function renderComparePanel(currentLang) {
   
   compareSlots.forEach((key) => {
     const p = phones[key];
-    html += showPhoneSpecs(key, currentLang);
+    html += showPhoneSpecs(key, lang);
   });
   
   panel.innerHTML = html;
