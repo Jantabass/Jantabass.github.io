@@ -118,7 +118,7 @@ html, body {
 }
 
 
-.default_image {
+.default_image img {
   max-width: 40%;   /* velg ønsket bredde */
   margin: 0 auto 20px;
   display: block;
@@ -338,7 +338,7 @@ html, body {
     rgba(0,0,0,0.45),
     rgba(0,0,0,0.45)
     ),
-    url("images/hero-image.png");
+    url("../images/hero-image.png");
     background-size: cover;
     background-position: center;
     width: 100%;
@@ -638,10 +638,11 @@ footer ul {
 }
 
 .slideshow_omoss{
-  width: 900px;
-  height: 600px;
+  max-width: 60%;
+  height: auto;
   border-radius: 16px;
   margin: 0 auto;
+  object-fit: contain;
 
 }
 
@@ -649,7 +650,6 @@ footer ul {
   background: linear-gradient(180deg, rgba(8, 35, 92, 0.295), rgba(17, 5, 150, 0.491));
   padding: 10px;
   border-radius: 16px;
-  width: 100vw;
 
 }
 
@@ -676,7 +676,6 @@ footer ul {
   text-align: center;
   justify-content: center;
   color: white;
-  padding: 60px 20px;
 }
 
 .liste1, .liste2 {
@@ -806,6 +805,13 @@ tr:hover {
     background-color: var(--accent);
 }
 @media (max-width: 600px) { 
+
+.slideshow_omoss {
+  height: auto;
+  max-width: 100%;
+  width: 100%;
+}
+
   header {
     margin-left: 0%;
     text-align: left;
@@ -854,9 +860,21 @@ tr:hover {
 
 }
 
-h2,h3{
+h2, h3{
   text-align: center;
-  font-size: 2em;
+
+}
+
+h1 {
+    font-size: 2.3em;
+}
+
+h2 {
+    font-size: 1.5em;
+}
+
+h3 {
+    font-size: 1em;
 }
 
 
