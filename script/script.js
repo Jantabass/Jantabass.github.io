@@ -5,13 +5,14 @@ document.getElementById("header").innerHTML = `
 
   <header>
     <a href ="startside.html"><h1>ClearPhone</h1></a>
+    <div class="header_buttons">
     <img src="../images/mode_knappen_cropped2.png" id="modeBtn" alt="Bytt modus">
     <div class="dropdown">
   <button class="dropbtn translate-language" onclick="toggleMenu()"></button>
   <div id="menu" class="dropdown-content">
     <a href="#" onclick="setLanguage('en')">English</a>
     <a href="#" onclick="setLanguage('no')">Norwegian</a>
-  </div>
+    </div>
 </div>
   </header>
 `;
@@ -57,6 +58,7 @@ const translations = {
     updatedRegularlyP: "Vi holder siden oppdatert med de nyeste modellene og spesifikasjonene.",
 
     empty: "Tom plass",
+    scrollToCompare: "Scroll for å sammenligne",
 
     screen: "Skjermstørrelse:",
     camera: "Kamera:",
@@ -166,6 +168,7 @@ const translations = {
     updatedRegularlyP: "We keep the site updated with the latest models and specifications.",
 
     empty: "Empty slot",
+    scrollToCompare: "Scroll to compare",
 
     screen: "Screen size:",
     camera: "Camera:",
@@ -329,7 +332,7 @@ function playSound(sound) {
 function removeFromCompare(key) {
   compareSlots = compareSlots.filter(p => p !== key);
   playSound(soundRemove);
-  renderComparePanel();
+  renderComparePanel(currentLang);
   highlightMaxValues();
 }
  
@@ -933,6 +936,14 @@ document.querySelectorAll(".qa-question").forEach(button => {
 
 updateAllText();
 
+const indicator = document.querySelector(".scroll-indicator");
+
+window.addEventListener("scroll", () => {
+  const fadeDistance = window.innerHeight; // 100vh
+  const scrollY = window.scrollY;
+  const opacity = 1 - Math.min(scrollY / fadeDistance*3, 1);
+  indicator.style.opacity = opacity;
+});
 
 // pop-up for kontakt oss
 document.addEventListener('DOMContentLoaded', () => {
