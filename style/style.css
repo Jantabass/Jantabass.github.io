@@ -3,17 +3,17 @@
   --bg3: #ffffff;
   --bg1: #ff477b;
   --accent: #e77094;
-  --accent-hover: #ffd2de;
-  --weak-shadow: #ffffff51;
-  --primary-btn-bg: var(--bg3);
-  --primary-btn-hover: var(--bg2);
+  --accentHover: #ffd2de;
+  --weakShadow: #ffffff51;
+  --primaryBtnBg: var(--bg3);
+  --primaryBtnHover: var(--bg2);
   --text: #000;
   --card: #fff;
   --muted: #444;
-  --mode_btn_col: #ffffff;
-  --button-bg: #ffffff;
-  --gradient-col: linear-gradient(180deg, var(--bg1), var(--bg2), var(--bg3));
-  --f-h-gradient-col: linear-gradient(180deg, var(--accent), var(--bg1));
+  --modeBtnCol: #ffffff;
+  --buttonBg: #ffffff;
+  --gradientCol: linear-gradient(180deg, var(--bg1), var(--bg2), var(--bg3));
+  --FHGradient: linear-gradient(180deg, var(--accent), var(--bg1));
 }
 
 
@@ -22,18 +22,18 @@ body.dark-mode {
   --bg2: #182252;
   --bg1: #0b1231;
   --accent: #060c2c;
-  --accent-hover: #100f3a;
-  --weak-shadow: #160d5151;
-  --primary-btn-bg: var(--card);
-  --primary-btn-hover: #0c0b5b;
+  --accentHover: #100f3a;
+  --weakShadow: #160d5151;
+  --primaryBtnBg: var(--card);
+  --primaryBtnHover: #0c0b5b;
   --text: #f0f0f0;
   --card: #050d24;
   --muted: #aaa;
-  --mode_btn_col: #ffffff;
+  --modeBtnCol: #ffffff;
   --footer_text_color: #ffffff;
-  --button-bg: #6bb8d9;
-  --gradient-col: linear-gradient(180deg, var(--bg1), var(--bg2), var(--bg3));
-  --f-h-gradient-col: linear-gradient(180deg, var(--accent), var(--bg1));
+  --buttonBg: #6bb8d9;
+  --gradientCol: linear-gradient(180deg, var(--bg1), var(--bg2), var(--bg3));
+  --FHGradient: linear-gradient(180deg, var(--accent), var(--bg1));
 }
  
 
@@ -44,14 +44,20 @@ h1, h2, h3{
 p {
   color: white;
 } 
+
+html {
+  width: 100vw;
+}
+
 body {
-  background: var(--gradient-col);
+  background: var(--gradientCol);
   font-family: Arial, sans-serif;
   color: var(--text);
   margin: 0;
   padding: 0;
   background-repeat: no-repeat;
   min-height: 100vh;
+  
   display: flex;
   flex-direction: column;
   background-attachment: fixed;
@@ -63,7 +69,7 @@ body {
 }
 
 
-body.fade-in {
+body.fadeIn {
     opacity: 1;
 }
 
@@ -76,7 +82,7 @@ html, body {
   font-size: calc(1rem + 0.2vw);
 }
  
-.dropdown {
+.dropDown {
   display: inline-block;
   height: 100%;
   position: relative;
@@ -87,7 +93,7 @@ html, body {
   display: block;
 }
 
-.dropdown-content {
+.dropdownContent {
   display: none;
   background: var(--card);
   min-width: 100%;
@@ -101,28 +107,60 @@ html, body {
   
 }
 
-.dropdown-content a {
+.dropdownContent a {
   display: block;
   padding: 10px;
   text-decoration: none;
   color: var(--text);
 }
 
-.dropdown-content.show {
+.dropdownContent.show {
   display: block;
   z-index: 1000;
   border-radius: 0.2em;
   
 }
 
-.dropdown-content a:hover {
-  background: var(--accent-hover);
+.dropdownContent a:hover {
+  background: var(--accentHover);
 }
 
 
-.default_image img {
-  max-width: 40%;   /* velg ønsket bredde */
-  margin: 0 auto 20px;
+.defaultContent {
+  width: 40vw;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+  align-self: center;
+  justify-items: center;
+  justify-self: center;
+  align-items: flex-start;
+  max-width: 60vw;
+
+}
+
+.defaultContent ol, .defaultContent ul {
+  padding-left: 2rem;      
+  margin: 0;
+  list-style-position: outside;
+  text-align: left;
+  padding-left: 2rem; 
+  
+  margin-left: auto;
+  margin-right: auto;
+  
+  max-width: fit-content;
+  margin-bottom: 4em;
+  margin-top: 2em;
+}
+
+.defaultContent li {
+  margin-bottom: 1rem;
+  line-height: 1.6;         /* Gjør teksten lettere å lese */
+}
+
+.defaultImage img {
+  max-width: 100%;   /* velg ønsket bredde */
   display: block;
   display: flex;
   justify-content: center;
@@ -130,14 +168,13 @@ html, body {
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   height: auto;
-  margin-bottom: 20px;
 }
 
-.default_image img {
-  border-radius: 12px;
+.defaultImage img {
+  border-radius: 2em;
 }
  
-.default_image:hover {
+.defaultImage:hover {
   transform: translateY(-2px);
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
 }
@@ -146,7 +183,7 @@ html, body {
   width: 90%;
 }
 
-.phone-groups {
+.phoneGroups {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
@@ -157,7 +194,7 @@ html, body {
 
 
 
-.select-phone {
+.selectPhone {
   background: var(--card);
   padding: 15px;
   border-radius: 8px;
@@ -167,18 +204,22 @@ html, body {
   overflow: hidden;
   cursor: pointer;
   width: 100%;
+  border: none;
+  color: var(--text);
+  font-size: 0.9em;
+  font-weight: 600;
 }
  
  
-.select-phone img {
+.selectPhone img {
   width: 100%;
-  height: 100px;
+  height: 6rem;
   object-fit: cover;
   object-position: center 20%; /* cropper høyere opp */
   transform: scale(0.9);       /* mindre zoom */
 }
  
-.select-phone span {
+.selectPhone span {
   display: block;
   margin-bottom: 40px;
   font-weight: 600;
@@ -187,13 +228,17 @@ html, body {
 
 
 .group {
-  flex: 0 0 calc(33.333% - 20px);
+  flex: 0 1 calc(33.333% - 1.5rem);
+  justify-content: space-between;
+  flex-wrap: wrap;
+  min-width: 15rem;
+  max-width: 40rem;
 }
 
 
 
 
-.group-phones {
+.groupPhones {
   display: none;      /* skjult som standard */
   margin-top: 5%;
   
@@ -201,21 +246,21 @@ html, body {
   gap: 5%;
 }
 
-.group-phones.show {
+.groupPhones.show {
   display: flex;      /* vis som flex */
   flex-wrap: wrap;
   justify-content: flex-start;
+  gap: 1rem;
+  width: 100%;
 }
 
-.group-phones .select-phone {
-  margin-bottom: 2%;
+.groupPhones .selectPhone {
+  margin-bottom: 1rem;
   box-sizing: border-box;
-  width: 50%;
-  flex: 0 0 calc(48%);
-  box-sizing: border-box;
+  flex: 0 1 calc(50% - 0.5rem);
 }
 
-.group-btn {
+.groupBtn {
   width: 100%;
   padding: 12px;
   font-size: 1em;
@@ -228,33 +273,33 @@ html, body {
   color: #fff;
   text-align: left;
   margin-bottom: 10px;
-  box-shadow: 0 0 20px var(--weak-shadow) ;
+  box-shadow: 0 0 20px var(--weakShadow) ;
   white-space: nowrap;
   overflow: hidden;     /* skjuler overflødig tekst */
   text-overflow: ellipsis; 
 
 }
 
-.group-btn p {
+.groupBtn p {
   display: inline;  /* fjerner linjeskift */
   margin: 0;
 }
 
 
-.group-btn:hover {
-  background-color: var(--accent-hover);
+.groupBtn:hover {
+  background-color: var(--accentHover);
 }
 
-.scroll-indicator {
+.scrollIndicator {
   margin-bottom: 5%;
   color: white;
 }
 
-.scroll-indicator .arrow-wrapper {
+.scrollIndicator .arrowWrapper {
   animation: bounce 3.5s infinite;
 }
 
-.scroll-indicator .arrow {
+.scrollIndicator .arrow {
   width: 20px;
   height: 20px;
   border-left: 2px solid white;
@@ -281,7 +326,7 @@ html, body {
   justify-content: center;
   
 }
-.catalog_section {
+.catalogSection {
   margin-bottom: 1%;
   justify-content: center;
   align-items: center;
@@ -292,11 +337,11 @@ html, body {
 
 }
 
-.compare_phone.empty {
+.comparePhone.empty {
   min-height: 30.5vh;
 }
 
-.compare_phone, .compare_phone.empty  {
+.comparePhone, .comparePhone.empty  {
   background: var(--card);
   border-radius: 0.75rem;
   padding: 1.2rem;
@@ -315,26 +360,26 @@ html, body {
   margin-bottom: 20px;
 }
  
-.compare_phone:hover {
+.comparePhone:hover {
   transform: translateY(-5px);
   box-shadow: 0 12px 25px rgba(0,0,0,0.2);
 }
  
-.compare_phone h3 {
+.comparePhone h3 {
   margin-top: 0;
-  margin-bottom: 5%px;
+  margin-bottom: 5%;
   font-size: 1.2em;
   color: var(--text);
 }
  
-.compare_phone p {
+.comparePhone p {
   margin: 4px 0;
   font-size: 0.9em;
   color: var(--muted);
   text-align: center;
 }
  
-.compare_phone button.remove-btn {
+.comparePhone button.removeBtn {
   position: absolute;
   top: 8px;
   right: 8px;
@@ -348,7 +393,7 @@ html, body {
   transition: background 0.2s;
 }
  
-.compare_phone button.remove-btn:hover {
+.comparePhone button.removeBtn:hover {
   background: #c0392b;
 }
 
@@ -370,7 +415,7 @@ html, body {
  
 
 
-.hero-bg {
+.heroBg {
   background-image: linear-gradient(
     rgba(0,0,0,0.45),
     rgba(0,0,0,0.45)
@@ -389,12 +434,12 @@ html, body {
   }
   
   
-  .hero .less_big_hero h1 {
+  .hero .lessBigHero h1 {
     font-size: 3.2em;
     margin-bottom: 16px;
   }
   
-  .hero .less_big_hero p {
+  .hero .lessBigHero p {
     font-size: 1.1em;
     max-width: 520px;
     line-height: 1.6;
@@ -402,7 +447,7 @@ html, body {
     color: var(--text);
   }
   
-  .less_big_hero {
+  .lessBigHero {
     min-height: 30vh;
     display: flex;
     flex-direction: column;
@@ -424,9 +469,6 @@ html, body {
     align-self: center;
     background: var(--card); 
   
-  /* For Dark Mode kan du bruke en mørk variant: */
-  /* background: rgba(12, 40, 59, 0.7); */
-
 
 }
   
@@ -437,7 +479,7 @@ html, body {
 
   }
   
-  .btn-primary, #modeBtn, .dropbtn {
+  .btnPrimary, #modeBtn, .dropBtn {
     border-radius: 2em;
     
   
@@ -458,13 +500,36 @@ html, body {
   }
   /* Button */
   #modeBtn {
-    background-color: var(--mode_btn_col);
+    background-color: var(--modeBtnCol);
     flex-shrink: 0; 
   /* 2. Gi den en fast bredde basert på høyden så den forblir proporsjonal */
   aspect-ratio: 1 / 1;
 }
 
-#modeBtn, .dropbtn {
+
+
+#modeBtnContainer {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%; /* Samme som før */
+  aspect-ratio: 1 / 1;
+  border-radius: 2rem;
+  transition: transform 0.2s ease;
+}
+
+
+#modeBtnContainer:focus-visible {
+  outline: 0.2rem solid var(--accent);
+  outline-offset: 0.2rem;
+}
+
+
+#modeBtn, .dropBtn {
   display: flex;
 height: 100%;
 margin:0;
@@ -474,7 +539,7 @@ align-self: center;
 
 }
 
-.dropbtn {
+.dropBtn {
   width: auto;
   padding: 0 1.5rem;
   
@@ -482,7 +547,7 @@ align-self: center;
   font-size: auto;
 }
 
-.header_buttons {
+.headerButtons {
     display: flex;
     gap: 1em;
     align-items: center;
@@ -501,8 +566,8 @@ align-self: center;
   display: block;
 
 }
-  .btn-primary {
-      background: var(--primary-btn-bg);
+  .btnPrimary {
+      background: var(--primaryBtnBg);
     
     color: var(--text);
     padding: 0.9% 1%;
@@ -511,8 +576,8 @@ align-self: center;
     
   }
   
-  .btn-primary:hover, #modeBtn:hover, .dropbtn:hover {
-    background: var(--primary-btn-hover);
+  .btnPrimary:hover, #modeBtn:hover, .dropBtn:hover {
+    background: var(--primaryBtnHover);
     transform: translateY(-1px);
     box-shadow: 0 0px 28px var(--bg2);
     
@@ -523,6 +588,7 @@ align-self: center;
   
   .features {
     margin: 3% auto;
+    max-width: 100%;
 
 
   padding: 0 20px;
@@ -531,6 +597,8 @@ align-self: center;
   flex-direction: column;
 
 } 
+
+
  
  
 .container {
@@ -543,7 +611,7 @@ align-self: center;
 #header, #footer {
   width:100%;
   box-sizing: border-box;
-  background-color: var(--f-h-gradient-col);
+  background-color: var(--FHGradient);
 }
 
 #footer footer {
@@ -617,55 +685,54 @@ align-self: center;
 
 
 #qaPage {
-  margin-top: 10%;
-  margin-bottom: 10%;
+  margin-top: 10rem;
+  margin-bottom: 10rem;
+  display: block;
+  width: 100%;
 }
  
-/* Dark Mode */
 .qa {
   flex:1 ;
-  max-width: 40%;
-  margin: 40px auto;
 }
  
-.qa-question {
+.qaQuestion {
   width: 100%;
-  padding: 3%;
-  font-size: 1em;
+  padding: 1.2rem;
+  font-size: 1rem;
   font-weight: 600;
   text-align: left;
   background: var(--card);
   border: none;
-  border-radius: 1em;
+  border-radius: 1rem;
   cursor: pointer;
-  margin-bottom: 1%;
+  margin-bottom: 1rem;
   color: var(--text)
 }
  
-.qa-answer {
+.qaAnswer {
   display: none;
-  padding: 0 15px 15px;
+  padding: 0 1rem 1rem;
   color: var(--text);
   text-align: left;
   line-height: 1.9;
 }
 
 
-.qa-answer {
+.qaAnswer {
   display: none;
 }
 
-.qa-answer.show {
+.qaAnswer.show {
   display: block;
 }
  
 
 
 
-.hero-bg { position: relative; }
+.heroBg { position: relative; }
 
 
-.slideshow img,.slideshow_startside img,.slideshow_omoss img
+.slideShow img,.slideshowStartside img,.slideshowOmOss img
  {
   max-width: 100%;
   overflow: hidden;
@@ -673,6 +740,7 @@ align-self: center;
 
 
 .parent {
+  flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -681,8 +749,8 @@ align-self: center;
 }
 
 .slideshow,
-.slideshow_startside,
-.slideshow_omoss {
+.slideshowStartside,
+.slideshowOmoss {
   display: flex;
   position: relative;
   width: 70%;
@@ -707,14 +775,14 @@ align-self: center;
   opacity: 1;
 }
 
-.slideshow_startside {
+.slideshowStartside {
   width: 100%;
   height: auto;
 }
 
 
 
-.white-background {
+.whiteBackground {
   background: linear-gradient(180deg, rgba(8, 35, 92, 0.295), rgba(17, 5, 150, 0.491));
   padding: 10px;
   border-radius: 16px;
@@ -730,7 +798,7 @@ align-self: center;
 
 
 
-.hero-bg-om-oss {
+.heroBgOmOss {
   background-image: linear-gradient(
       rgba(0,0,0,0.45),
       rgba(0,0,0,0.45)
@@ -827,7 +895,7 @@ li {
 }
 
 
-.list-wrapper {
+.listWrapper {
   max-width: 100%;
   height: 500px;
   display: flex;
@@ -853,7 +921,7 @@ table {
     background-color: var(--bg3);
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     border-radius: 10px;
-    background-color: linear-gradient(180deg, var(--bg1), var(--bg2));
+    background-color: var(--gradientCol);
 }
 
 th, td {
@@ -874,22 +942,26 @@ tr:hover {
 }
 @media (max-width: 600px) { 
 
+  .defaultContent {
+    width: 90%;
+  }
 
 
-  .btn-primary {
+
+  .btnPrimary {
     padding: 2em 1.5em;
     font-size: 0.9em;
   }
   
 
-  .slideshow_omoss img{
+  .slideshowOmoss img{
     height: auto;
     border-radius: 16px;
     width: 100%;
   }
 
 
-  .phone-groups {
+  .phoneGroups {
     flex-direction: column;
     gap: 12px;
     
@@ -899,7 +971,7 @@ tr:hover {
     width: 100%;
   }
 
-  .group-btn {
+  .groupBtn {
     font-size: 1.1em;
     padding: 16px;
     text-align: center;
@@ -915,7 +987,7 @@ tr:hover {
   width: 100%;
   }
 
-  .compare_phone, .compare_phone.empty {
+  .comparePhone, .comparePhone.empty {
     flex: 0 0 48%;
     max-width: 48%;
   }
@@ -943,7 +1015,7 @@ h3 {
 }
 
 
-.contact-form {
+.contactForm {
   width: 100%;
   max-width: 600px;
   margin: 60px auto;
@@ -960,8 +1032,8 @@ h3 {
 }
 
 /* Input & textarea */
-.contact-form input,
-.contact-form textarea {
+.contactForm input,
+.contactForm textarea {
   padding: 14px 16px;
   font-size: 1rem;
   border-radius: 10px;
@@ -975,8 +1047,8 @@ h3 {
 } */
 
 /* Dark mode: mørk bakgrunn + lys tekst */
-body.dark-mode .contact-form input,
-body.dark-mode .contact-form textarea {
+body.dark-mode .contactForm input,
+body.dark-mode .contactForm textarea {
   background: rgba(255,255,255,0.04); /* mørk, gjennomsiktig */
   border: 1px solid rgba(255,255,255,0.06);
   color: var(--text);
@@ -986,13 +1058,13 @@ body.dark-mode .contact-form textarea {
 
 
 /* Tekstområde */
-.contact-form textarea {
+.contactForm textarea {
   resize: vertical;
   min-height: 14%;
 }
 
 /* Knapp */
-.contact-form button {
+.contactForm button {
   padding: 14%;
   font-size: 1em;
   font-weight: 600;
@@ -1002,14 +1074,14 @@ body.dark-mode .contact-form textarea {
   
   /* Gradient knapp */
   
-  background: linear-gradient(135deg, var(--accent-hover), var(--kontakt_box_color));
+  background: linear-gradient(135deg, var(--accentHover), var(--kontakt_box_color));
   border: none;
   border-radius: 1%;
   cursor: pointer;
   transition: all 0.25s ease;
   box-shadow: 0 1% 1% rgba(0,0,0,0.15);
 }
-.contact-form textarea, .contact-form input {
+.contactForm textarea, .contactForm input {
   width: 90%;
   align-self: center;
   color: var(--text);
@@ -1023,12 +1095,12 @@ body.dark-mode .contact-form textarea {
 } */
 
 /* Aktiv (klikk) */
-.contact-form button:active {
+.contactForm button:active {
   transform: translateY(0);
   box-shadow: 0 4% 12% rgba(0,0,0,0.15);
 }
 
-.success-box {
+.successBox {
   position: fixed;
   inset: 0;
   width: 100%;
@@ -1044,13 +1116,13 @@ body.dark-mode .contact-form textarea {
   align-items: center;
 }
 
-.success-box.show {
+.successBox.show {
   opacity: 1;
   visibility: visible;
   animation: success-fade 180ms ease-out;
 }
 
-.success-content {
+.successContent {
   background: var(--card);
   padding: 48px 64px;
   border-radius: 16px;
@@ -1061,7 +1133,7 @@ body.dark-mode .contact-form textarea {
   width: calc(100% - 160px);
 }
 
-.success-content p{
+.successContent p{
   color: var(--text);
   font-size: 1.2em;
   align-items: center;
