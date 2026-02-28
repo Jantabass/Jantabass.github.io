@@ -10,7 +10,7 @@ document.getElementById("header").innerHTML = `
     <img src="../images/modeKnappenCropped2.png" id="modeBtn" alt="Bytt modus">
     </button>
     <div class="dropDown">
-  <button class="droBtn translate-language" onclick="toggleMenu()"></button>
+  <button class="dropBtn translate-language" onclick="toggleMenu()"></button>
   <div id="menu" class="dropdownContent">
     <a href="#" onclick="setLanguage('en')">English</a>
     <a href="#" onclick="setLanguage('no')">Norwegian</a>

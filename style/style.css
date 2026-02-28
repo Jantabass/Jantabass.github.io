@@ -30,7 +30,7 @@ body.dark-mode {
   --card: #050d24;
   --muted: #aaa;
   --modeBtnCol: #ffffff;
-  --footer_text_color: #ffffff;
+  --footerTextColor: #ffffff;
   --buttonBg: #6bb8d9;
   --gradientCol: linear-gradient(180deg, var(--bg1), var(--bg2), var(--bg3));
   --FHGradient: linear-gradient(180deg, var(--accent), var(--bg1));
@@ -645,7 +645,7 @@ align-self: center;
 }
 
 #footer a {
-  color: var(--footer_text_color);
+  color: var(--footerTextColor);
   text-decoration: none;
   
 }
@@ -853,7 +853,7 @@ align-self: center;
   top: 50%;
   transform: translateY(-50%);
   background: var(--accent);
-  color: var(--footer_text_color);
+  color: var(--footerTextColor);
   width: 26px;
   height: 26px;
   border-radius: 50%;
@@ -891,7 +891,7 @@ align-self: center;
 }
 
 li {
-  color: var(--footer_text_color);
+  color: var(--footerTextColor);
 }
 
 
@@ -905,7 +905,7 @@ h4 {
   text-align: center;
   color: var(--bg1);
   font-size: 3em;
-  color:var(--footer_text_color)
+  color:var(--footerTextColor)
 }
 
 .iframe {
@@ -1074,7 +1074,7 @@ body.dark-mode .contactForm textarea {
   
   /* Gradient knapp */
   
-  background: linear-gradient(135deg, var(--accentHover), var(--kontakt_box_color));
+  background: linear-gradient(135deg, var(--accentHover), var(--kontaktBoxColor));
   border: none;
   border-radius: 1%;
   cursor: pointer;
