@@ -763,13 +763,14 @@ align-self: center;
 .slideshowOmoss img {
   display: block;            /* ikke flex for å unngå arving */
   width: 100%;
-  max-width: 80%;         /* endre for ønsket størrelse */
+  max-width: 70%;         /* endre for ønsket størrelse */
   margin: 0 auto;
   aspect-ratio: 16 / 9;
   position: relative;
   overflow: hidden;
   align-self: center;
   border-radius: 12px;
+  
 }
 
 
