@@ -916,8 +916,8 @@ h4 {
 table {
     margin: 0 auto 40px;
     border-collapse: collapse;
-    width: 80%;
-    max-width: 800px;
+    width: 100%;
+    max-width: 100%;
     background-color: var(--bg3);
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     border-radius: 10px;
@@ -925,7 +925,7 @@ table {
 }
 
 th, td {
-    padding: 14px 16px;
+    padding: 1em 1em;
     text-align: left;
 }
 
@@ -944,6 +944,19 @@ tr:hover {
 
   .defaultContent {
     width: 90%;
+  }
+
+  table, thead, tbody, th, td, tr {
+    display: block; /* Gjør alt til blokker i stedet for rader/celler */
+    width: 100%;
+  }
+  th {
+    display: none; /* Skjul overskriftene på mobil */
+  }
+
+  td {
+    position: relative;
+    border-bottom: 0.3em solid var(--weak-shadow);
   }
 
 
@@ -1017,26 +1030,25 @@ h3 {
 
 .contactForm {
   width: 100%;
-  max-width: 600px;
-  margin: 60px auto;
-  padding: 30px;
+  max-width: 100%;
+  margin: 2% auto;
+  padding: 3%;
   background: var(--card);
-  border-radius: 16px;
+  border-radius: 1em;
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 1em;
   
-  /* Ny: penere skygge */
-  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  box-shadow: 0 1em 3em rgba(0,0,0,0.08);
   backdrop-filter: blur(6px);
 }
 
 /* Input & textarea */
 .contactForm input,
 .contactForm textarea {
-  padding: 14px 16px;
+  padding: 0.8em 0.8em;
   font-size: 1rem;
-  border-radius: 10px;
+  border-radius: 1em;
   border: 1px solid rgba(0,0,0,0.15);
   outline: none;
 }
@@ -1065,7 +1077,7 @@ body.dark-mode .contactForm textarea {
 
 /* Knapp */
 .contactForm button {
-  padding: 14%;
+  padding: 2%;
   font-size: 1em;
   font-weight: 600;
   color: var(--text);
@@ -1073,8 +1085,8 @@ body.dark-mode .contactForm textarea {
   align-self: center;
   
   /* Gradient knapp */
+  background-color: var(--card);
   
-  background: linear-gradient(135deg, var(--accentHover), var(--kontaktBoxColor));
   border: none;
   border-radius: 1%;
   cursor: pointer;
