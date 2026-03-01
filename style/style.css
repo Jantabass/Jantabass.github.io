@@ -685,8 +685,8 @@ align-self: center;
 
 
 #qaPage {
-  margin-top: 10rem;
-  margin-bottom: 10rem;
+  margin-top: 10vh;
+  margin-bottom: 10vh;
   display: block;
   width: 100%;
 }
