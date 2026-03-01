@@ -147,7 +147,8 @@ const translations = {
     ourPriorities: "ClearPhones prioriteringer:",
     priority1: "Gi den råeste informasjonen mulig",
     priority2: "Sørge for at det er lett å finne frem og sammenlikne",
-    priority3: "Oppdatere siden jevnlig med de nyeste modellene og spesifikasjonene"
+    priority3: "Oppdatere siden jevnlig med de nyeste modellene og spesifikasjonene",
+    bestEmployees: "Våre beste ansatte, som har vært med oss siden starten"
 
 
   },
@@ -263,7 +264,8 @@ const translations = {
     ourPriorities: "ClearPhone's priorities:",
     priority1: "Give the rawest information possible",
     priority2: "Make sure it is easy to find and compare models",
-    priority3: "Update our site regurarly with the newest models and specifications"
+    priority3: "Update our site regurarly with the newest models and specifications",
+    bestEmployees: "Our best employees, who have been with us since the start"
 
 
 }
