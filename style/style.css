@@ -758,7 +758,9 @@ align-self: center;
   aspect-ratio: 16 / 9;   
 }
 
-
+.translate-bestEmployees {
+  font-size: 35px;
+}
 
 .slideshowOmoss img {
   display: block;            /* ikke flex for å unngå arving */
@@ -942,6 +944,7 @@ li {
   justify-content: space-between;
   gap: 20px;
   padding: 20px;
+
 }
 
 h4 {
@@ -1194,7 +1197,7 @@ body.dark-mode .contactForm textarea {
 }
 
 
-@media (max-width: 800vh) {
+@media (max-width: 600px) {
 
   * {
       box-sizing: border-box; 
@@ -1213,101 +1216,38 @@ body.dark-mode .contactForm textarea {
     .liste1,
     .liste2 {
         width: 100%;
-        max-width: 100%;
+        min-height: 300px; /* juster høyden hvis du vil */
+        
         background-size: cover;
-        height: 40vh;
-        text-align: center;
-        align-items: center;
-        
-        
-      }
-
-    .liste1 ul, .liste2 ul {
-        overflow-wrap: break-word;
-        display: block;
-      }
-
-    .liste1 li, .liste2 li {
-      padding-left: 0;            /* fjern plass for venstre-ikon */
-      justify-content: center;
-      text-align: center;
-      display: flex;
-      flex-direction: column;     /* ikon over tekst */
-      gap: 6px;
-      min-height: auto;
-      }
-
-    
-      
-      
-      img{
-          max-width: 100%;
-          height: auto;
-          display: block;
-      }
-
-    .slideshowOmoss {
-          width: 100%;
-          height: auto;
-          max-width: 100%;
-          margin-top: 2vh;
-
-    }
-
-    iframe {
-        width: 100%;
-        height: auto;
-    }
-
-}
-
-@media (min-width: 769px) and (max-width: 1199px) {
-
-    
-    .liste2 {
-        padding: 10vh;
-        max-width: 100%; 
-        background-size: cover; 
         background-position: center;
+        background-repeat: no-repeat;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center; /* sentrer teksten vertikalt */
+        align-items: center;     /* sentrer horisontalt */
+
+        padding: 30px;
+        text-align: center;
     }
 
-    
-    .slideshowOmoss {
-        max-width: 700px; 
-    }
-
-    
-    .listWrapper {
-        flex-direction: row;
-        justify-content: space-between;
-        gap: 20px;
-    }
-
-    .liste1,
-    .liste2 {
-        width: 48%;
-        padding: 2vh;
-    }
-    .liste1 li, .liste2 li {
-        overflow-wrap: break-word;
-        font-size: 2rem;
-    }
-
-
-    iframe {
+    .liste1 ul,
+    .liste2 ul,
+    .liste1 ol,
+    .liste2 ol {
+        margin: 0;
+        padding: 0;
         width: 100%;
-        height: 350px;
     }
 
-    .listWrapper {
-        gap: 15px;  
+    .liste1 li,
+    .liste2 li {
+        list-style-position: inside;
+        overflow-wrap: break-word;
     }
 
-    .parent {
-        padding: 15px;
-        margin-bottom: 15px;
-    }
 }
+
 
 
 
