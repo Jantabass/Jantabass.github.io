@@ -3,17 +3,17 @@
   --bg3: #ffffff;
   --bg1: #ff477b;
   --accent: #e77094;
-  --accent-hover: #ffd2de;
-  --weak-shadow: #ffffff51;
-  --primary-btn-bg: var(--bg3);
-  --primary-btn-hover: var(--bg2);
+  --accentHover: #ffd2de;
+  --weakShadow: #ffffff51;
+  --primaryBtnBg: var(--bg3);
+  --primaryBtnHover: var(--bg2);
   --text: #000;
   --card: #fff;
   --muted: #444;
-  --mode_btn_col: #ffffff;
-  --button-bg: #ffffff;
-  --gradient-col: linear-gradient(180deg, var(--bg1), var(--bg2), var(--bg3));
-  --f-h-gradient-col: linear-gradient(180deg, var(--accent), var(--bg1));
+  --modeBtnCol: #ffffff;
+  --buttonBg: #ffffff;
+  --gradientCol: linear-gradient(180deg, var(--bg1), var(--bg2), var(--bg3));
+  --FHGradient: linear-gradient(180deg, var(--accent), var(--bg1));
 }
 
 
@@ -22,18 +22,18 @@ body.dark-mode {
   --bg2: #182252;
   --bg1: #0b1231;
   --accent: #060c2c;
-  --accent-hover: #100f3a;
-  --weak-shadow: #160d5151;
-  --primary-btn-bg: var(--card);
-  --primary-btn-hover: #0c0b5b;
+  --accentHover: #100f3a;
+  --weakShadow: #160d5151;
+  --primaryBtnBg: var(--card);
+  --primaryBtnHover: #0c0b5b;
   --text: #f0f0f0;
   --card: #050d24;
   --muted: #aaa;
-  --mode_btn_col: #ffffff;
-  --footer_text_color: #ffffff;
-  --button-bg: #6bb8d9;
-  --gradient-col: linear-gradient(180deg, var(--bg1), var(--bg2), var(--bg3));
-  --f-h-gradient-col: linear-gradient(180deg, var(--accent), var(--bg1));
+  --modeBtnCol: #ffffff;
+  --footerTextColor: #ffffff;
+  --buttonBg: #6bb8d9;
+  --gradientCol: linear-gradient(180deg, var(--bg1), var(--bg2), var(--bg3));
+  --FHGradient: linear-gradient(180deg, var(--accent), var(--bg1));
 }
  
 
@@ -44,27 +44,32 @@ h1, h2, h3{
 p {
   color: white;
 } 
+
+html {
+  width: 100vw;
+}
+
 body {
-  background: var(--gradient-col);
+  background: var(--gradientCol);
   font-family: Arial, sans-serif;
   color: var(--text);
   margin: 0;
   padding: 0;
   background-repeat: no-repeat;
   min-height: 100vh;
-  display: grid;
+  
+  display: flex;
   flex-direction: column;
   background-attachment: fixed;
-}
-
-/* Add to your CSS file */
-body {
-    opacity: 0;
+  overflow-x: hidden;
+  position: relative;
+  opacity: 0;
     transition: opacity 0.5s ease-in-out;
     text-align: center;
 }
 
-body.fade-in {
+
+body.fadeIn {
     opacity: 1;
 }
 
@@ -74,13 +79,13 @@ main {
 }
  
 html, body {
-  height: 100%;
-  min-height: 100%;
-  font-size: calc(0.6rem + 0.5vw);
+  font-size: calc(1rem + 0.2vw);
 }
  
-.dropdown {
+.dropDown {
   display: inline-block;
+  height: 100%;
+  position: relative;
   
 }
 
@@ -88,39 +93,74 @@ html, body {
   display: block;
 }
 
-.dropdown-content {
+.dropdownContent {
   display: none;
-  position: absolute;
   background: var(--card);
-  min-width: 160px;
+  min-width: 100%;
+  width: 100%;
   box-shadow: 0 8px 16px rgba(0,0,0,0.2);
   right: 0;
   left: auto;
+  top: 100%;
+  position: absolute;
+  
   
 }
 
-.dropdown-content a {
+.dropdownContent a {
   display: block;
   padding: 10px;
   text-decoration: none;
   color: var(--text);
 }
 
-.dropdown-content.show {
+.dropdownContent.show {
   display: block;
   z-index: 1000;
-  border-radius: 7%;
+  border-radius: 0.2em;
   
 }
 
-.dropdown-content a:hover {
-  background: var(--accent-hover);
+.dropdownContent a:hover {
+  background: var(--accentHover);
 }
 
 
-.default_image {
-  max-width: 40%;   /* velg ønsket bredde */
-  margin: 0 auto 20px;
+.defaultContent {
+  width: 40vw;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+  align-self: center;
+  justify-items: center;
+  justify-self: center;
+  align-items: flex-start;
+  max-width: 60vw;
+
+}
+
+.defaultContent ol, .defaultContent ul {
+  padding-left: 2rem;      
+  margin: 0;
+  list-style-position: outside;
+  text-align: left;
+  padding-left: 2rem; 
+  
+  margin-left: auto;
+  margin-right: auto;
+  
+  max-width: fit-content;
+  margin-bottom: 4em;
+  margin-top: 2em;
+}
+
+.defaultContent li {
+  margin-bottom: 1rem;
+  line-height: 1.6;         /* Gjør teksten lettere å lese */
+}
+
+.defaultImage img {
+  max-width: 100%;   /* velg ønsket bredde */
   display: block;
   display: flex;
   justify-content: center;
@@ -128,14 +168,13 @@ html, body {
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   height: auto;
-  margin-bottom: 20px;
 }
 
-.default_image img {
-  border-radius: 12px;
+.defaultImage img {
+  border-radius: 2em;
 }
  
-.default_image:hover {
+.defaultImage:hover {
   transform: translateY(-2px);
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
 }
@@ -144,7 +183,7 @@ html, body {
   width: 90%;
 }
 
-.phone-groups {
+.phoneGroups {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
@@ -155,7 +194,7 @@ html, body {
 
 
 
-.select-phone {
+.selectPhone {
   background: var(--card);
   padding: 15px;
   border-radius: 8px;
@@ -165,18 +204,22 @@ html, body {
   overflow: hidden;
   cursor: pointer;
   width: 100%;
+  border: none;
+  color: var(--text);
+  font-size: 0.9em;
+  font-weight: 600;
 }
  
  
-.select-phone img {
+.selectPhone img {
   width: 100%;
-  height: 100px;
+  height: 6rem;
   object-fit: cover;
   object-position: center 20%; /* cropper høyere opp */
   transform: scale(0.9);       /* mindre zoom */
 }
  
-.select-phone span {
+.selectPhone span {
   display: block;
   margin-bottom: 40px;
   font-weight: 600;
@@ -185,13 +228,17 @@ html, body {
 
 
 .group {
-  flex: 0 0 calc(33.333% - 20px);
+  flex: 0 1 calc(33.333% - 1.5rem);
+  justify-content: space-between;
+  flex-wrap: wrap;
+  min-width: 15rem;
+  max-width: 40rem;
 }
 
 
 
 
-.group-phones {
+.groupPhones {
   display: none;      /* skjult som standard */
   margin-top: 5%;
   
@@ -199,25 +246,26 @@ html, body {
   gap: 5%;
 }
 
-.group-phones.show {
+.groupPhones.show {
   display: flex;      /* vis som flex */
   flex-wrap: wrap;
   justify-content: flex-start;
+  gap: 1rem;
+  width: 100%;
 }
 
-.group-phones .select-phone {
-  margin-bottom: 2%;
+.groupPhones .selectPhone {
+  margin-bottom: 1rem;
   box-sizing: border-box;
-  width: 50%;
-  flex: 0 0 calc(48%);
-  box-sizing: border-box;
+  flex: 0 1 calc(50% - 0.5rem);
 }
 
-.group-btn {
+.groupBtn {
   width: 100%;
   padding: 12px;
   font-size: 1em;
   font-weight: bold;
+  display: block;
   border: none;
   border-radius: 8px;
   cursor: pointer;
@@ -225,15 +273,50 @@ html, body {
   color: #fff;
   text-align: left;
   margin-bottom: 10px;
-  box-shadow: 0 0 20px var(--weak-shadow) ;
+  box-shadow: 0 0 20px var(--weakShadow) ;
+  white-space: nowrap;
+  overflow: hidden;     /* skjuler overflødig tekst */
+  text-overflow: ellipsis; 
+
 }
 
-.group-btn:hover {
-  background-color: var(--accent-hover);
+.groupBtn p {
+  display: inline;  /* fjerner linjeskift */
+  margin: 0;
 }
 
 
+.groupBtn:hover {
+  background-color: var(--accentHover);
+}
 
+.scrollIndicator {
+  margin-bottom: 5%;
+  color: white;
+}
+
+.scrollIndicator .arrowWrapper {
+  animation: bounce 3.5s infinite;
+}
+
+.scrollIndicator .arrow {
+  width: 20px;
+  height: 20px;
+  border-left: 2px solid white;
+  border-bottom: 2px solid white;
+  transform: rotate(-45deg);
+  margin: 1% auto 0;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(8px); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0.4; }
+  to { opacity: 1; }
+}
 
 #compareBox {
   margin-top: 3%;
@@ -241,11 +324,10 @@ html, body {
   flex-wrap: wrap;      /* neste rad hvis mer enn 3 */
   gap: 3%;              /* mellomrom mellom telefonene */
   justify-content: center;
-  margin-top: 10%;
   
 }
-.compare_section {
-  margin-bottom: 100px;
+.catalogSection {
+  margin-bottom: 1%;
   justify-content: center;
   align-items: center;
   text-align: center;
@@ -255,11 +337,11 @@ html, body {
 
 }
 
-.compare_phone.empty {
+.comparePhone.empty {
   min-height: 30.5vh;
 }
 
-.compare_phone, .compare_phone.empty  {
+.comparePhone, .comparePhone.empty  {
   background: var(--card);
   border-radius: 0.75rem;
   padding: 1.2rem;
@@ -278,26 +360,26 @@ html, body {
   margin-bottom: 20px;
 }
  
-.compare_phone:hover {
+.comparePhone:hover {
   transform: translateY(-5px);
   box-shadow: 0 12px 25px rgba(0,0,0,0.2);
 }
  
-.compare_phone h3 {
+.comparePhone h3 {
   margin-top: 0;
-  margin-bottom: 5%px;
+  margin-bottom: 5%;
   font-size: 1.2em;
   color: var(--text);
 }
  
-.compare_phone p {
+.comparePhone p {
   margin: 4px 0;
   font-size: 0.9em;
   color: var(--muted);
   text-align: center;
 }
  
-.compare_phone button.remove-btn {
+.comparePhone button.removeBtn {
   position: absolute;
   top: 8px;
   right: 8px;
@@ -311,7 +393,7 @@ html, body {
   transition: background 0.2s;
 }
  
-.compare_phone button.remove-btn:hover {
+.comparePhone button.removeBtn:hover {
   background: #c0392b;
 }
 
@@ -333,7 +415,7 @@ html, body {
  
 
 
-.hero-bg {
+.heroBg {
   background-image: linear-gradient(
     rgba(0,0,0,0.45),
     rgba(0,0,0,0.45)
@@ -352,12 +434,12 @@ html, body {
   }
   
   
-  .hero .less_big_hero h1 {
+  .hero .lessBigHero h1 {
     font-size: 3.2em;
     margin-bottom: 16px;
   }
   
-  .hero .less_big_hero p {
+  .hero .lessBigHero p {
     font-size: 1.1em;
     max-width: 520px;
     line-height: 1.6;
@@ -365,8 +447,8 @@ html, body {
     color: var(--text);
   }
   
-  .less_big_hero {
-    min-height: 60vh;
+  .lessBigHero {
+    min-height: 30vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -377,19 +459,16 @@ html, body {
   
   .intro {
     max-width: 100%;
-    margin: 80px auto;
-    padding: 32px 40px;
+    margin: 6% auto;
+    padding: 1% 10%;
     background: var(--card);
-    border-radius: 20px;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+    border-radius: 1em;
+    box-shadow: 0 2% 6%px rgba(0,0,0,0.15);
     text-align: center;
     align-items: center;
     align-self: center;
     background: var(--card); 
   
-  /* For Dark Mode kan du bruke en mørk variant: */
-  /* background: rgba(12, 40, 59, 0.7); */
-
 
 }
   
@@ -400,61 +479,105 @@ html, body {
 
   }
   
-  .btn-primary, #modeBtn, .dropbtn {
+  .btnPrimary, #modeBtn, .dropBtn {
     border-radius: 2em;
+    
   
     font-size: 1em;
     font-weight: 600;
     text-decoration: none;
     transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s;
     box-shadow: 0 0px 20px var(--bg3);
+    
 
     overflow: hidden;
-    display: inline-flex;
+    display: flex;
     align-items: center;
     justify-content: center;
     border: none;
     cursor: pointer;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    
   }
   /* Button */
   #modeBtn {
-    width: 3vw;
-    height: 3vw;
-    background-color: var(--mode_btn_col);
-    padding: 0;
-    margin-right: 1%;
+    background-color: var(--modeBtnCol);
+    flex-shrink: 0; 
+  /* 2. Gi den en fast bredde basert på høyden så den forblir proporsjonal */
+  aspect-ratio: 1 / 1;
 }
 
-#modeBtn, .dropbtn {
-margin-left: auto;
-padding: 0%;
+
+
+#modeBtnContainer {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%; /* Samme som før */
+  aspect-ratio: 1 / 1;
+  border-radius: 2rem;
+  transition: transform 0.2s ease;
+}
+
+
+#modeBtnContainer:focus-visible {
+  outline: 0.2rem solid var(--accent);
+  outline-offset: 0.2rem;
+}
+
+
+#modeBtn, .dropBtn {
+  display: flex;
+height: 100%;
+margin:0;
+box-sizing: border-box;
+box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+align-self: center;
 
 }
 
-.dropbtn {
-  width: 8vw;
-  height: 3vw;
+.dropBtn {
+  width: auto;
+  padding: 0 1.5rem;
+  
+  white-space: nowrap;
+  font-size: auto;
 }
+
+.headerButtons {
+    display: flex;
+    gap: 1em;
+    align-items: center;
+    max-height: 100%;
+    height: 80%;
+    padding-right: 1.5rem;
+    white-space: nowrap;
+    box-sizing: border-box;
+  }
+  
 
 #modeBtn img {
-  width: 50%;
-  height: 50%;
-  object-fit: cover;
+  width: 100%; 
+  height: auto;
+  object-fit: contain;
   display: block;
 
 }
-  .btn-primary {
-      background: var(--primary-btn-bg);
+  .btnPrimary {
+      background: var(--primaryBtnBg);
     
     color: var(--text);
-    padding: 14px 28px;
+    padding: 0.9% 1%;
+    
     
     
   }
   
-  .btn-primary:hover, #modeBtn:hover, .dropbtn:hover {
-    background: var(--primary-btn-hover);
+  .btnPrimary:hover, #modeBtn:hover, .dropBtn:hover {
+    background: var(--primaryBtnHover);
     transform: translateY(-1px);
     box-shadow: 0 0px 28px var(--bg2);
     
@@ -463,15 +586,19 @@ padding: 0%;
   
   
   
-  
   .features {
-    max-width: 900px;
-  margin: 0 auto 60px;
+    margin: 3% auto;
+    max-width: 100%;
+
+
   padding: 0 20px;
   justify-content: center;
   /* text-align: center; */
   flex-direction: column;
+
 } 
+
+
  
  
 .container {
@@ -481,141 +608,154 @@ padding: 0%;
   width: 100%;
 }
  
-header, footer {
-  text-align: center;
-  padding: 10px 0;
-  background-color: var(--f-h-gradient-col);
-  margin-bottom: 20px;
+#header, #footer {
+  width:100%;
+  box-sizing: border-box;
+  background-color: var(--FHGradient);
 }
 
-.footer a {
-  color: var(--footer_text_color);
-  text-decoration: none;
-}
-
-
-
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 40px;
-  color: #fff;
-  box-shadow: 0 6px 10px #00000030;
-  margin-bottom: 0%;
-}
- 
-header h1 {
-  margin: 0;
-  font-size: 1.8em;
-}
- 
-header a {
-  text-decoration: none;
-  color: inherit;
-}
- 
-footer {
+#footer footer {
   background: var(--bg3);
-  padding: 30px 20px;
+  padding: 5vh 0 3vh 0;
   box-shadow: 0 -6px 2px var(--bg3);
   margin-bottom: 0%;
+  margin-top: 5vh;
+  font-size: 1.1em;
 }
-
-
  
-footer ul {
+#footer ul {
+ 
   list-style: none;
   padding: 0;
-  margin: 15px 0 0;
   display: flex;
   justify-content: center;
-  gap: 20px;
-  color:var()
+  gap: 2%;
 }
 
-footer ul li a, footer p {
+#footer ul li a, #footer p {
   color: var(--text);
-  font-size: 0.9rem;
+   font-size: 0.8em;
   transition: color 0.2s ease;
   text-decoration: none;
 }
  
-footer ul li a:hover {
-  color: var(--accent);
+#footer ul li a:hover {
+  color: var(--bg2);
   text-decoration: underline;
 }
- 
-footer p {
-  margin: 0;
-  font-size: 0.85em;
+
+#footer a {
+  color: var(--footerTextColor);
+  text-decoration: none;
+  
 }
 
- 
-footer ul {
-  list-style: none;
-  padding: 0;
-  margin: 15px 0 0;
+
+
+#header header {
+  height: 6vh;
+  max-height: 10vh;
+  padding: 1%;
+  gap: 1rem;
   display: flex;
-  justify-content: center;
-  gap: 20px;
-  color: var(--footer_text_color);
-}
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: #0000001a 0px 4px 12px;
+  
+  align-content: center;
 
 
-
-
-
- 
-/* Dark Mode */
-.qa {
-  max-width: 40%;
-  margin: 40px auto;
 }
  
-.qa-question {
-  width: 100%;
-  padding: 15px;
+#header h1 {
+  margin-left: 1.5vw;
+  font-size: 1.8em;
+}
+ 
+#header a {
+  text-decoration: none;
+  color: inherit;
   font-size: 1em;
+}
+ 
+
+ 
+
+
+
+
+#qaPage {
+  margin-top: 10rem;
+  margin-bottom: 10rem;
+  display: block;
+  width: 100%;
+}
+ 
+.qa {
+  flex:1 ;
+}
+ 
+.qaQuestion {
+  width: 100%;
+  padding: 1.2rem;
+  font-size: 1rem;
   font-weight: 600;
   text-align: left;
   background: var(--card);
   border: none;
-  border-radius: 8px;
+  border-radius: 1rem;
   cursor: pointer;
-  margin-bottom: 8px;
+  margin-bottom: 1rem;
   color: var(--text)
 }
  
-.qa-answer {
+.qaAnswer {
   display: none;
-  padding: 0 15px 15px;
+  padding: 0 1rem 1rem;
   color: var(--text);
   text-align: left;
   line-height: 1.9;
 }
 
 
-.qa-answer {
+.qaAnswer {
   display: none;
 }
 
-.qa-answer.show {
+.qaAnswer.show {
   display: block;
 }
  
 
 
 
-.hero-bg { position: relative; }
-.slideshow,.slideshow_startside,.slideshow_omoss
- {
-  position: relative;
-  height: 90vh !important;  /* juster høyde */
-  overflow: hidden;
-  flex: 0 0 auto;
-  align-self: center;
+.heroBg { position: relative; }
 
+
+.slideShow img,.slideshowStartside img,.slideshowOmOss img
+ {
+  max-width: 100%;
+  overflow: hidden;
+ }
+
+
+.parent {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  flex-direction: column;
+}
+
+.slideshow,
+.slideshowStartside,
+.slideshowOmoss {
+  display: flex;
+  position: relative;
+  width: 70%;
+  align-content: center;
+  aspect-ratio: 16 / 9;   /* responsiv høyde */
 }
 
 .slide {
@@ -626,30 +766,26 @@ footer ul {
   object-fit: cover;
   opacity: 0;
   transition: opacity 1.2s ease-in-out;
+   display: flex;           /* legg til */
+  justify-content: center; /* sentrer horisontalt */
+  align-items: center;     
 }
 
 .slide.active {
   opacity: 1;
 }
 
-.slideshow_startside {
+.slideshowStartside {
   width: 100%;
-  height: 70%;
+  height: auto;
 }
 
-.slideshow_omoss{
-  width: 900px;
-  height: 600px;
-  border-radius: 16px;
-  margin: 0 auto;
 
-}
 
-.white-background {
+.whiteBackground {
   background: linear-gradient(180deg, rgba(8, 35, 92, 0.295), rgba(17, 5, 150, 0.491));
   padding: 10px;
   border-radius: 16px;
-  width: 100vw;
 
 }
 
@@ -662,7 +798,7 @@ footer ul {
 
 
 
-.hero-bg-om-oss {
+.heroBgOmOss {
   background-image: linear-gradient(
       rgba(0,0,0,0.45),
       rgba(0,0,0,0.45)
@@ -676,7 +812,6 @@ footer ul {
   text-align: center;
   justify-content: center;
   color: white;
-  padding: 60px 20px;
 }
 
 .liste1, .liste2 {
@@ -718,7 +853,7 @@ footer ul {
   top: 50%;
   transform: translateY(-50%);
   background: var(--accent);
-  color: var(--footer_text_color);
+  color: var(--footerTextColor);
   width: 26px;
   height: 26px;
   border-radius: 50%;
@@ -756,11 +891,11 @@ footer ul {
 }
 
 li {
-  color: var(--footer_text_color);
+  color: var(--footerTextColor);
 }
 
 
-.list-wrapper {
+.listWrapper {
   max-width: 100%;
   height: 500px;
   display: flex;
@@ -770,7 +905,7 @@ h4 {
   text-align: center;
   color: var(--bg1);
   font-size: 3em;
-  color:var(--footer_text_color)
+  color:var(--footerTextColor)
 }
 
 .iframe {
@@ -786,7 +921,7 @@ table {
     background-color: var(--bg3);
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     border-radius: 10px;
-    background-color: linear-gradient(180deg, var(--bg1), var(--bg2));
+    background-color: var(--gradientCol);
 }
 
 th, td {
@@ -805,27 +940,28 @@ th {
 tr:hover {
     background-color: var(--accent);
 }
-
-
 @media (max-width: 600px) { 
-  html, body {
-    font-size: calc(0.8rem + 0.5vw);
+
+  .defaultContent {
+    width: 90%;
   }
 
-  header {
-    margin-left: 0%;
-    text-align: left;
-    align-items: flex-start;
-  }
-  header a {
-    margin-right: 0%;
+
+
+  .btnPrimary {
+    padding: 2em 1.5em;
+    font-size: 0.9em;
   }
   
-  #modeBtn  {
-    padding: 1vw;
-    font-size: 0.8em;
+
+  .slideshowOmoss img{
+    height: auto;
+    border-radius: 16px;
+    width: 100%;
   }
-  .phone-groups {
+
+
+  .phoneGroups {
     flex-direction: column;
     gap: 12px;
     
@@ -835,12 +971,14 @@ tr:hover {
     width: 100%;
   }
 
-  .group-btn {
+  .groupBtn {
     font-size: 1.1em;
     padding: 16px;
     text-align: center;
 
   }
+
+
   #compareBox {
   justify-content: space-between;
   display: flex;
@@ -849,46 +987,58 @@ tr:hover {
   width: 100%;
   }
 
-  .compare_phone, .compare_phone.empty {
+  .comparePhone, .comparePhone.empty {
     flex: 0 0 48%;
     max-width: 48%;
   }
 
 
-  #modeBtn img { width: 20px; height: 20px; }
 
 
 }
 
-h2,h3{
+h2, h3{
   text-align: center;
-  font-size: 2em;
+
+}
+
+h1 {
+    font-size: 2.3em;
+}
+
+h2 {
+    font-size: 1.5em;
+}
+
+h3 {
+    font-size: 1em;
 }
 
 
- .contact-form {
-    width: 50%;
-    margin: 60px auto;
-    padding: 30px;
-    background: var(--card);
-    border-radius: 16px;
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
-    
-    /* Ny: penere skygge */
-    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-    backdrop-filter: blur(6px);
+.contactForm {
+  width: 100%;
+  max-width: 600px;
+  margin: 60px auto;
+  padding: 30px;
+  background: var(--card);
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  
+  /* Ny: penere skygge */
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  backdrop-filter: blur(6px);
 }
 
 /* Input & textarea */
-.contact-form input,
-.contact-form textarea {
-    padding: 14px 16px;
-    font-size: 1em;
-    border-radius: 10px;
-    border: 1px solid rgba(0,0,0,0.15);
-    outline: none;
+.contactForm input,
+.contactForm textarea {
+  padding: 14px 16px;
+  font-size: 1rem;
+  border-radius: 10px;
+  border: 1px solid rgba(0,0,0,0.15);
+  outline: none;
 }
 
 /* .contact-form input::placeholder,
@@ -897,8 +1047,8 @@ h2,h3{
 } */
 
 /* Dark mode: mørk bakgrunn + lys tekst */
-body.dark-mode .contact-form input,
-body.dark-mode .contact-form textarea {
+body.dark-mode .contactForm input,
+body.dark-mode .contactForm textarea {
   background: rgba(255,255,255,0.04); /* mørk, gjennomsiktig */
   border: 1px solid rgba(255,255,255,0.06);
   color: var(--text);
@@ -906,94 +1056,97 @@ body.dark-mode .contact-form textarea {
 }
 
 
-.contact-form textarea {
-    resize: vertical;
-    min-height: 140px;
+
+/* Tekstområde */
+.contactForm textarea {
+  resize: vertical;
+  min-height: 14%;
 }
 
 /* Knapp */
-.contact-form button {
-    padding: 14px;
-    font-size: 1em;
-    font-weight: 600;
-    color: var(--text);
-    width: 90%;
-    align-self: center;
-
-    /* Gradient knapp */
-
-    background: linear-gradient(135deg, var(--accent-hover), var(--kontakt_box_color));
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: all 0.25s ease;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
-  }
-  .contact-form textarea, .contact-form input {
-    width: 90%;
-    align-self: center;
-    color: var(--text);
-
-  }
+.contactForm button {
+  padding: 14%;
+  font-size: 1em;
+  font-weight: 600;
+  color: var(--text);
+  width: 90%;
+  align-self: center;
+  
+  /* Gradient knapp */
+  
+  background: linear-gradient(135deg, var(--accentHover), var(--kontaktBoxColor));
+  border: none;
+  border-radius: 1%;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 1% 1% rgba(0,0,0,0.15);
+}
+.contactForm textarea, .contactForm input {
+  width: 90%;
+  align-self: center;
+  color: var(--text);
+  
+}
 
 /* Hover-effekt */
-  /* .contact-form button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 22px rgba(0,0,0,0.18);
+/* .contact-form button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px rgba(0,0,0,0.18);
 } */
 
 /* Aktiv (klikk) */
-.contact-form button:active {
-    transform: translateY(0);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+.contactForm button:active {
+  transform: translateY(0);
+  box-shadow: 0 4% 12% rgba(0,0,0,0.15);
 }
 
-.success-box {
-    position: fixed;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: rgba(0,0,0,0.4);
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease;
-    z-index: 9999;
-    align-items: center;
+.successBox {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0,0,0,0.4);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease;
+  z-index: 9999;
+  align-items: center;
 }
 
-.success-box.show {
-    opacity: 1;
-    visibility: visible;
-    animation: success-fade 180ms ease-out;
+.successBox.show {
+  opacity: 1;
+  visibility: visible;
+  animation: success-fade 180ms ease-out;
 }
 
-.success-content {
-    background: var(--card);
-    padding: 48px 64px;
-    border-radius: 16px;
-    text-align: center;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-    animation: pop 0.3s ease;
-    max-width: 900px;
-    width: calc(100% - 160px);
+.successContent {
+  background: var(--card);
+  padding: 48px 64px;
+  border-radius: 16px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  animation: pop 0.3s ease;
+  max-width: 900px;
+  width: calc(100% - 160px);
 }
 
-.success-content p{
+.successContent p{
   color: var(--text);
   font-size: 1.2em;
   align-items: center;
 }
 
 @keyframes pop {
-    from {
-        transform: scale(0.8);
-        opacity: 0;
-    }
-    to {
-        transform: scale(1);
-        opacity: 1;
-    }
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
+

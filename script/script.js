@@ -4,14 +4,17 @@ document.getElementById("header").innerHTML = `
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <header>
-    <a href ="../index.html"><h1>ClearPhone</h1></a>
-    <img src="${getBasePath()}images/mode_knappen_cropped2.png" id="modeBtn" alt="Bytt modus">
-    <div class="dropdown">
-  <button class="dropbtn translate-language" onclick="toggleMenu()"></button>
-  <div id="menu" class="dropdown-content">
+    <a href ="startside.html"><h1>ClearPhone</h1></a>
+    <div class="headerButtons">
+    <button type="button" id="modeBtnContainer" aria-label="Bytt modus">
+    <img src="../images/modeKnappenCropped2.png" id="modeBtn" alt="Bytt modus">
+    </button>
+    <div class="dropDown">
+  <button class="dropBtn translate-language" onclick="toggleMenu()"></button>
+  <div id="menu" class="dropdownContent">
     <a href="#" onclick="setLanguage('en')">English</a>
     <a href="#" onclick="setLanguage('no')">Norwegian</a>
-  </div>
+    </div>
 </div>
   </header>
 `;
@@ -20,13 +23,14 @@ document.getElementById("footer").innerHTML = `
   <footer>
     <p>© 2026 ClearPhone</p>
     <ul>
-      <li><a class="translate-aboutUs" href="${getBasePath()}html/om_oss.html">Om oss</a></li>
-      <li><a class="translate-contactUs" href="${getBasePath()}html/kontakt_oss.html">Kontakt oss</a></li>
+      <li><a class="translate-aboutUs" href="${getBasePath()}html/omOss.html">Om oss</a></li>
+      <li><a class="translate-contactUs" href="${getBasePath()}html/kontaktOss.html">Kontakt oss</a></li>
       <li><a class="translate-career" href="${getBasePath()}html/karriere.html">Jobb hos oss</a></li>
-      <li><a class="translate-faq" href="${getBasePath()}html/q&a.html">Spørsmål og svar</a></li>
+      <li><a class="translate-faq" href="${getBasePath()}html/q&a.html"></a></li>
     </ul>
   </footer>
 `;
+
 
 
 function getBasePath() {
@@ -39,7 +43,7 @@ function getBasePath() {
 
 // Add to your HTML file (before closing body tag)
   document.addEventListener("DOMContentLoaded", function() {
-      document.body.classList.add('fade-in');
+      document.body.classList.add('fadeIn');
   });
 
 
@@ -66,6 +70,7 @@ const translations = {
     updatedRegularlyP: "Vi holder siden oppdatert med de nyeste modellene og spesifikasjonene.",
 
     empty: "Tom plass",
+    scrollToCompare: "Scroll for å sammenligne",
 
     screen: "Skjermstørrelse:",
     camera: "Kamera:",
@@ -137,6 +142,24 @@ const translations = {
     permanent: "Fast",
     temporary: "Deltid",
 
+    bestEmployees: "Våre beste arbeidere, som har vært med oss siden starten",
+
+    factsAboutUs: "Noen fakta om oss:",
+    foundedYear: "Grunnlagt i 2025",
+    employees: "2 ansatte",
+    plans: "Planer om videre utvikling",
+    futurePlans: "Våre fremtidsplaner:",
+    y2025: "2025: Første butikk åpnet",
+    y2026: "2026: Nettbutikk lansert",
+    y2027: "2027: Ny hovedbutikk i Oslo",
+    ourVideo: "Vår butikkvideo:",
+    weHaveFuturePlans: "Vi har planer for videre utvikling",
+    ourPriorities: "ClearPhones prioriteringer:",
+    priority1: "Gi den råeste informasjonen mulig",
+    priority2: "Sørge for at det er lett å finne frem og sammenlikne",
+    priority3: "Oppdatere siden jevnlig med de nyeste modellene og spesifikasjonene"
+
+
   },
 
   en: {
@@ -161,6 +184,7 @@ const translations = {
     updatedRegularlyP: "We keep the site updated with the latest models and specifications.",
 
     empty: "Empty slot",
+    scrollToCompare: "Scroll to compare",
 
     screen: "Screen size:",
     camera: "Camera:",
@@ -233,6 +257,25 @@ const translations = {
     economics: "Economics responsible",
     permanent: "Permanent",
     temporary: "Temporary",
+
+
+    bestEmployees: "Our best employees, who have been with us since the start",
+    factsAboutUs: "Some facts about us:",
+    foundedYear: "Founded in 2025",
+    employees: "2 employees",
+    plans: "Plans for further development",
+    futurePlans: "Our future plans:",
+    y2025: "2025: First store opened",
+    y2026: "2026: Online store launched",
+    y2027: "2027: New main store in Oslo",
+    ourVideo: "Our store video:",
+    weHaveFuturePlans: "We have plans for further development",
+    ourPriorities: "ClearPhone's priorities:",
+    priority1: "Give the rawest information possible",
+    priority2: "Make sure it is easy to find and compare models",
+    priority3: "Update our site regurarly with the newest models and specifications"
+
+
 }
 }
 let currentLang = localStorage.getItem("preferredLang") || "en"; // Hent språk fra localStorage eller bruk engelsk som standard
@@ -266,7 +309,7 @@ function toggleMenu() {
   menu.classList.toggle("show");
   // Lukk menyen hvis du klikker utenfor
   document.addEventListener("click", function handler(e) {
-    if (!menu.contains(e.target) && !e.target.classList.contains("dropbtn")) {
+    if (!menu.contains(e.target) && !e.target.classList.contains("dropBtn")) {
       menu.classList.remove("show");
       document.removeEventListener("click", handler);
     }
@@ -287,15 +330,15 @@ function setLanguage(lang) {
 }
 
 
-const soundAdd = new Audio("${getbasePath()}sounds/add.wav");
+const soundAdd = new Audio("../sounds/add.wav");
 soundAdd.preload = "auto";
-const soundRemove = new Audio("${getbasePath()}sounds/remove.wav");
+const soundRemove = new Audio("../sounds/remove.wav");
 soundRemove.preload = "auto";
-const soundToggle = new Audio("${getbasePath()}sounds/mode.wav");
+const soundToggle = new Audio("../sounds/mode.wav");
 soundToggle.preload = "auto";
-const soundGroupOpen = new Audio("${getbasePath()}sounds/group_open.wav");
+const soundGroupOpen = new Audio("../sounds/groupOpen.wav");
 soundGroupOpen.preload = "auto";
-const soundGroupClose = new Audio("${getbasePath()}sounds/group_close.wav");
+const soundGroupClose = new Audio("../sounds/groupClose.wav");
 soundGroupClose.preload = "auto";
 
 function playSound(sound) {
@@ -667,7 +710,7 @@ iphone17promax: {
  
  
  
-document.querySelectorAll(".group-btn").forEach(btn => {
+document.querySelectorAll(".groupBtn").forEach(btn => {
   btn.addEventListener("click", () => {
     const phonesDiv = btn.nextElementSibling;
     if (phonesDiv.classList.contains("show")) {
@@ -685,13 +728,13 @@ document.querySelectorAll(".group-btn").forEach(btn => {
 let compareSlots = ["emptyphone"];
 
 
-let MAX_COMPARE = window.innerWidth <= 768 ? 2 : 3;
+let MAXCOMPARE = window.innerWidth <= 768 ? 2 : 3;
  
 window.addEventListener("resize", () => {
-  MAX_COMPARE = window.innerWidth <= 768 ? 2 : 3;
+  MAXCOMPARE = window.innerWidth <= 768 ? 2 : 3;
 
-  if (compareSlots.length > MAX_COMPARE) {
-    compareSlots = compareSlots.slice(0, MAX_COMPARE);
+  if (compareSlots.length > MAXCOMPARE) {
+    compareSlots = compareSlots.slice(0, MAXCOMPARE);
     renderComparePanel();
     highlightMaxValues();
   }
@@ -707,8 +750,8 @@ function showPhoneSpecs(key, currentLang) {
 
   const phoneName = key === "emptyphone" ? lang.empty : p.name;
     return `
-        <div class="compare_phone">
-         ${key !== "emptyphone" ? `<button class="remove-btn" id="remove" data-key="${key}">Fjern</button>` : ""}
+        <div class="comparePhone">
+         ${key !== "emptyphone" ? `<button class="removeBtn" id="remove" data-key="${key}">Fjern</button>` : ""}
           <h3>${phoneName}</h3>
           <p>${lang.screen} ${key !== "emptyphone" ? `<span class="highlight-screen">${p.screen}"</span>` : ""} </p>
           <p>${lang.camera} ${key !== "emptyphone" ? `${p.camera}` : ""}</p>
@@ -729,7 +772,7 @@ function showPhoneSpecs(key, currentLang) {
 }
 
 
-function renderComparePanel(lang = currentLang) {
+function renderComparePanel(currentLang) {
   
   const panel = document.getElementById("compareBox");
   if (!panel) return;
@@ -746,12 +789,12 @@ function renderComparePanel(lang = currentLang) {
   
   compareSlots.forEach((key) => {
     const p = phones[key];
-    html += showPhoneSpecs(key, lang);
+    html += showPhoneSpecs(key, currentLang);
   });
   
   panel.innerHTML = html;
   
-  panel.querySelectorAll(".remove-btn").forEach(btn => {
+  panel.querySelectorAll(".removeBtn").forEach(btn => {
     btn.addEventListener("click", () => {
       removeFromCompare(btn.dataset.key);
     });
@@ -772,7 +815,7 @@ function highlightMaxValues() {
  
   // Hent elementene i panelet
   const panel = document.getElementById("compareBox");
-  const items = panel.querySelectorAll(".compare_phone");
+  const items = panel.querySelectorAll(".comparePhone");
  
   // Samle verdier for hver kategori
   let maxValues = {
@@ -832,7 +875,7 @@ function highlightMaxValues() {
 function addToCompare(key) {
   if (!phones[key]) return;
   if (compareSlots.includes(key)) return;
-  if (compareSlots.length >= MAX_COMPARE) return;
+  if (compareSlots.length >= MAXCOMPARE) return;
 
   compareSlots = compareSlots.filter(k => k !== "empty");
 
@@ -859,7 +902,7 @@ highlightMaxValues();
 const body = document.body;
  
 document.addEventListener("click", (e) => {
-  if (e.target.id === "modeBtn") {
+  if (e.target.closest("#modeBtnContainer")) {
     body.classList.toggle("dark-mode");
     playSound(soundToggle);
  
@@ -878,6 +921,7 @@ if (e.target.id === "langBtn") {
 if (localStorage.getItem("theme") === "dark") {
   body.classList.add("dark-mode");
 }
+else {body.classList.add("dark-mode");}
 
 
 let currentSlide = 0;
@@ -899,10 +943,10 @@ document.addEventListener("DOMContentLoaded", function() {
 
 // ...existing code...
 
-document.querySelectorAll(".qa-question").forEach(button => {
+document.querySelectorAll(".qaQuestion").forEach(button => {
   button.addEventListener("click", function () {
     const answer = this.nextElementSibling;
-    if (answer && answer.classList.contains("qa-answer")) {
+    if (answer && answer.classList.contains("qaAnswer")) {
       answer.classList.toggle("show");
     }
   });
@@ -914,14 +958,22 @@ document.querySelectorAll(".qa-question").forEach(button => {
 
 updateAllText();
 
+const indicator = document.querySelector(".scrollIndicator");
+
+window.addEventListener("scroll", () => {
+  const fadeDistance = window.innerHeight; // 100vh
+  const scrollY = window.scrollY;
+  const opacity = 1 - Math.min(scrollY / fadeDistance*2, 1);
+  indicator.style.opacity = opacity;
+});
 
 // pop-up for kontakt oss
 document.addEventListener('DOMContentLoaded', () => {
-  const form = document.querySelector('.contact-form');
+  const form = document.querySelector('.contactForm');
   const successBox = document.getElementById('successBox');
 
   if (!form || !successBox) {
-    console.error("Form eller successBox ikke funnet");
+    console.error("error: form or successBox not found");
     return;
   }
 

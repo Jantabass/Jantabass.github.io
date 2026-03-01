@@ -9,72 +9,80 @@
 <div id="fullwindowbox">
 <div id="header"></div>
 
-<main class="less_big_hero">
+<main class="lessBigHero">
 
 <h1 class="translate-compareTitle"></h1>
 <p class="translate-compareSubtitle"></p>
 </main>
+<div class="scrollIndicator">
+  <span class="translate-scrollToCompare"></span>
+  <div class="arrowWrapper">
+    <div class="arrow"></div>
+  </div>
+</div>
 
-<div class ="compare_section">
-
-
-<div id="phoneGroups" class="phone-groups">
-
-
-  <div class="group">
-    <button class="group-btn">iPhone 14-<p class="translate-series"></p></button>
-    <div class="group-phones">
-      <div class="select-phone" onclick="addToCompare('iphone14')">iPhone 14</div>
-      <div class="select-phone" onclick="addToCompare('iphone14pro')">iPhone 14 Pro</div>
-      <div class="select-phone" onclick="addToCompare('iphone14plus')">iPhone 14 Plus</div>
-      <div class="select-phone" onclick="addToCompare('iphone14promax')">iPhone 14 Pro Max</div>
+<div class ="catalogSection">
+  
+  
+  <div id="phoneGroups" class="phoneGroups">
+    
+    
+    <div class="group">
+      <button class="groupBtn">iPhone 14-<p class="translate-series"></p></button>
+    <div class="groupPhones">
+      <button type="button" class = "selectPhone" onclick="addToCompare('iphone14')">iPhone 14</button>
+      <button type="button" class = "selectPhone" onclick="addToCompare('iphone14max')">iPhone 14 Max</button>
+      <button type="button" class = "selectPhone" onclick="addToCompare('iphone14pro')">iPhone 14 Pro</button>
+      <button type="button" class = "selectPhone" onclick="addToCompare('iphone14plus')">iPhone 14 Plus</button>
+      <button type="button" class = "selectPhone" onclick="addToCompare('iphone14promax')">iPhone 14 Pro Max</button>
     </div>
   </div>
   <div class="group">
-    <button class="group-btn">iPhone 15-<p class="translate-series"></p></button>
-    <div class="group-phones">
-      <div class="select-phone" onclick="addToCompare('iphone15')">iPhone 15</div>
-      <div class="select-phone" onclick="addToCompare('iphone15pro')">iPhone 15 Pro</div>
-      <div class="select-phone" onclick="addToCompare('iphone15plus')">iPhone 15 Plus</div>
-      <div class="select-phone" onclick="addToCompare('iphone15promax')">iPhone 15 Pro Max</div>
-    </div>
-  </div>
-
-  <div class="group">
-    <button class="group-btn">iPhone 16-<p class="translate-series"></p></button>
-    <div class="group-phones">
-      <div class="select-phone" onclick="addToCompare('iphone16')">iPhone 16</div>
-      <div class="select-phone" onclick="addToCompare('iphone16pro')">iPhone 16 Pro</div>
-      <div class="select-phone" onclick="addToCompare('iphone16promax')">iPhone 16 Pro Max</div>
-      <div class="select-phone" onclick="addToCompare('iphone16plus')">iPhone 16 Plus</div>
-      <div class="select-phone" onclick="addToCompare('iphone16e')">iPhone 16e</div>
+    <button class="groupBtn">iPhone 15-<p class="translate-series"></p></button>
+    <div class="groupPhones">
+      <button type="button" class = "selectPhone" onclick="addToCompare('iphone15')">iPhone 15</button>
+      <button type="button" class = "selectPhone" onclick="addToCompare('iphone15pro')">iPhone 15 Pro</button>
+      <button type="button" class = "selectPhone" onclick="addToCompare('iphone15plus')">iPhone 15 Plus</button>
+      <button type="button" class = "selectPhone" onclick="addToCompare('iphone15promax')">iPhone 15 Pro Max</button>
     </div>
   </div>
   
   <div class="group">
-    <button class="group-btn">iPhone 17-<p class="translate-series"></p></button>
-    <div class="group-phones">
-      <div class="select-phone" onclick="addToCompare('iphone17air')">iPhone Air</div>
-      <div class="select-phone" onclick="addToCompare('iphone17')">iPhone 17</div>
-      <div class="select-phone" onclick="addToCompare('iphone17pro')">iPhone 17 Pro</div>
-      <div class="select-phone" onclick="addToCompare('iphone17promax')">iPhone 17 Pro Max</div>
+    <button class="groupBtn">iPhone 16-<p class="translate-series"></p></button>
+    <div class="groupPhones">
+      <button type="button" class = "selectPhone" onclick="addToCompare('iphone16')">iPhone 16</button>
+      <button type="button" class = "selectPhone" onclick="addToCompare('iphone16pro')">iPhone 16 Pro</button>
+      <button type="button" class = "selectPhone" onclick="addToCompare('iphone16promax')">iPhone 16 Pro Max</button>
+      <button type="button" class = "selectPhone" onclick="addToCompare('iphone16plus')">iPhone 16 Plus</button>
+      <button type="button" class = "selectPhone" onclick="addToCompare('iphone16e')">iPhone 16e</button>
     </div>
   </div>
-
-
-
+  
+  <div class="group">
+    <button class="groupBtn">iPhone 17-<p class="translate-series"></p></button>
+    <div class="groupPhones">
+      <button type="button" class = "selectPhone" onclick="addToCompare('iphone17air')">iPhone Air</button>
+      <button type="button" class = "selectPhone" onclick="addToCompare('iphone17')">iPhone 17</button>
+      <button type="button" class = "selectPhone" onclick="addToCompare('iphone17pro')">iPhone 17 Pro</button>
+      <button type="button" class = "selectPhone" onclick="addToCompare('iphone17promax')">iPhone 17 Pro Max</button>
+    </div>
+  </div>
+  
+  
+  
 </div>
 
 
 </div>
+
 
 <div id="compareBox"></div>
 
-  
-
-      <div class="qa">
-  <button class="qa-question translate-comparequestion"></button>
-  <div class="qa-answer">
+<div class="parent">
+<div class="defaultContent">
+<div class="qa">
+  <button class="qaQuestion translate-comparequestion"></button>
+  <div class="qaAnswer">
     <ul>
       <li class="translate-explain1"></li>
       <li class="translate-explain2"></li>
@@ -92,6 +100,8 @@
       <li class="translate-explain14"></li>
     </ul>
   </div>
+</div>
+</div>
 </div>
 
 <div id="footer"></div>
