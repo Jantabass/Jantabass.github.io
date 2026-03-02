@@ -1052,21 +1052,26 @@ tr:hover {
 
 
   #compareBox {
-  justify-content: center;
   display: flex;
   flex-wrap: wrap;
-  gap: 3%;
+  justify-content: center;
+  gap: 0.5rem;
   width: 100%;
-  gap: 1rem;
-    padding: 0 1rem;
-  }
+  padding: 0.2rem; 
+  box-sizing: border-box;
+}
 
-  .comparePhone, .comparePhone.empty {
-    flex: 1 1 46%;
-    max-width: 46%;
-    padding: 0.7rem;
-    line-break:anywhere;
-  }
+.comparePhone, .comparePhone.empty {
+  flex: 0 0 calc(50% - 0.7rem); 
+  max-width: calc(50% - 0.7rem);
+  
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0.5rem; 
+  
+  display: flex;
+  flex-direction: column;
+}
 
 
 
