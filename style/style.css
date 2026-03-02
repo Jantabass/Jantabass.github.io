@@ -1113,7 +1113,7 @@ body.dark-mode .contactForm textarea {
 
 /* Knapp */
 .contactForm button {
-  padding: 14%;
+  padding: 3%;
   font-size: 1em;
   font-weight: 600;
   color: var(--text);
@@ -1122,7 +1122,7 @@ body.dark-mode .contactForm textarea {
   
   /* Gradient knapp */
   
-  background: linear-gradient(135deg, var(--accentHover), var(--kontaktBoxColor));
+  background: var(--accentHover);
   border: none;
   border-radius: 1%;
   cursor: pointer;
