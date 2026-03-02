@@ -300,7 +300,7 @@ html, body {
 }
 
 .scrollIndicator .arrowWrapper {
-  animation: bounce 3.5s infinite;
+  animation: bounce 1.5s infinite;
 }
 
 .scrollIndicator .arrow {
@@ -323,12 +323,12 @@ html, body {
 }
 
 #compareBox {
-  margin-top: 3%;
+  margin-top: 2rem;
   display: flex;
   flex-wrap: wrap;      
-  gap: 3%;              
-  justify-content: center;
-  
+  gap: 1.5rem; /* Bruker rem for mellomrom */
+  justify-content: center; /* Dette sentrerer elementene uansett antall */
+  width: 100%;
 }
 .catalogSection {
   margin-bottom: 1%;
@@ -348,10 +348,10 @@ html, body {
 .comparePhone, .comparePhone.empty  {
   background: var(--card);
   border-radius: 0.75rem;
-  padding: 1.2rem;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
-  flex: 1 1 22rem;
-  flex: 0 0 30%; display: flex;
+  padding: 2em 6em 2em 6em;
+  box-shadow: 0 4em 3em rgba(0,0,0,0.15);
+  flex: 0 1 20rem;
+  max-width: 50rem;
   
   
   display: flex;
@@ -361,7 +361,8 @@ html, body {
   position: relative;
   cursor: pointer;
   box-sizing: border-box;
-  margin-bottom: 20px;
+  margin: 1rem;
+  
 }
  
 .comparePhone:hover {
@@ -377,7 +378,7 @@ html, body {
 }
  
 .comparePhone p {
-  margin: 4px 0;
+  margin: 0.6em  0;
   font-size: 0.9em;
   color: var(--muted);
   text-align: center;
@@ -385,13 +386,13 @@ html, body {
  
 .comparePhone button.removeBtn {
   position: absolute;
-  top: 8px;
-  right: 8px;
+  top: 1em;
+  right: 1em;
   background: #e74c3c;
   color: #fff;
   border: none;
-  border-radius: 6px;
-  padding: 4px 8px;
+  border-radius: 1em;
+  padding: 0.4em 0.9em;
   font-size: 0.8em;
   cursor: pointer;
   transition: background 0.2s;
@@ -707,7 +708,8 @@ align-self: center;
   border-radius: 1rem;
   cursor: pointer;
   margin-bottom: 1rem;
-  color: var(--text)
+  color: var(--text);
+  margin-top: 3em;
 }
  
 .qaAnswer {
@@ -1050,16 +1052,20 @@ tr:hover {
 
 
   #compareBox {
-  justify-content: space-between;
+  justify-content: center;
   display: flex;
   flex-wrap: wrap;
   gap: 3%;
   width: 100%;
+  gap: 1rem;
+    padding: 0 1rem;
   }
 
   .comparePhone, .comparePhone.empty {
-    flex: 0 0 48%;
-    max-width: 48%;
+    flex: 1 1 46%;
+    max-width: 46%;
+    padding: 0.7rem;
+    line-break:anywhere;
   }
 
 

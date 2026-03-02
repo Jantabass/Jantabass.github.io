@@ -111,6 +111,15 @@ const translations = {
     question4: "Er all informasjon om de forskjellige modellene sanne?",
     answer4: "Ja, informasjonen er basert på offisielle spesifikasjoner fra Apple, tatt i betraktning at man kan oppleve små variasjoner i praksis. Det er heller ingen garanti for at det Apple oppgir stemmer 100% med virkeligheten.",
 
+    question5: "Hvordan bruker jeg sammenligningsverktøyet?",
+    answer5: "Klikk enkelt på modellene du ønsker å sammenligne, og de vil bli lagt til sammenligningspanelet. Du kan sammenligne opptil 3 modeller samtidig.",
+
+    question6: "Kan jeg sammenligne eldre iPhone-modeller som ikke lenger selges av Apple?",
+    answer6: "Ja, men de eldste modellene tilgjengelige her er iPhone 14-serien, da denne nettsiden er for sammenligning av de nyere modellene.",
+
+    question7: "Hva om jeg har et spørsmål som ikke er besvart her?",
+    answer7: "Ta gjerne kontakt med oss gjennom kontaktsiden, så skal vi gjøre vårt beste for å svare på spørsmålet ditt så snart som mulig.",
+
     department: "Avdeling",
     email: "E-post",
     phone: "Telefon",
@@ -226,6 +235,15 @@ const translations = {
 
       question4: "Is all the information about the different models true?",
       answer4: "Yes, the information is based on official specifications from Apple, although small variations may occur in practice. There is no guarantee that everything Apple states is 100% accurate.",
+
+      question5: "How do I use the comparison tool?",
+      answer5: "Simply click on the models you want to compare, and they will be added to the comparison panel. You can compare up to 3 models at a time.",
+
+      question6: "Can I compare older iPhone models that are no longer sold by Apple?",
+      answer6: "Yes, but the oldest models avalible here are the iPhone 14-series, as this website is for comparing the newer models.",
+
+      question7: "What if I have a question that is not answered here?",
+      answer7: "Feel free to contact us through the contact page, and we will do our best to answer your question as soon as possible.",
 
     department: "Department",
     email: "Email",
@@ -957,6 +975,9 @@ window.addEventListener("scroll", () => {
   const opacity = 1 - Math.min(scrollY / fadeDistance*2, 1);
   indicator.style.opacity = opacity;
 });
+
+
+
 
 // pop-up for kontakt oss
 document.addEventListener('DOMContentLoaded', () => {
