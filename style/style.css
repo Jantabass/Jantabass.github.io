@@ -145,6 +145,7 @@ html, body {
   list-style-position: outside;
   text-align: left;
   padding-left: 2rem; 
+  color: white;
   
   margin-left: auto;
   margin-right: auto;
@@ -841,7 +842,7 @@ align-self: center;
   background-image: linear-gradient(
       rgba(0,0,0,0.45),
       rgba(0,0,0,0.45)
-    ),url(https://www.shutterstock.com/image-photo/group-happy-workmates-play-football-600nw-2582651767.jpg);
+    ),url(../images/OmOss.png);
   background-size: cover;
   background-position: center;
   min-height: 60vh;
