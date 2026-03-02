@@ -1071,6 +1071,7 @@ tr:hover {
   
   display: flex;
   flex-direction: column;
+  line-break: anywhere;
 }
 
 
