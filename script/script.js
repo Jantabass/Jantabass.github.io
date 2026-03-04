@@ -23,10 +23,10 @@ document.getElementById("footer").innerHTML = `
   <footer>
     <p>© 2026 ClearPhone</p>
     <ul>
-      <li><a class="translate-aboutUs" href="${getBasePath()}/omOss.html">Om oss</a></li>
-      <li><a class="translate-contactUs" href="${getBasePath()}/kontaktOss.html">Kontakt oss</a></li>
-      <li><a class="translate-career" href="${getBasePath()}/karriere.html">Jobb hos oss</a></li>
-      <li><a class="translate-faq" href="${getBasePath()}/q&a.html"></a></li>
+      <li><a class="translate-aboutUs" href="${getBasePath()}/html/omOss.html">Om oss</a></li>
+      <li><a class="translate-contactUs" href="${getBasePath()}/html/kontaktOss.html">Kontakt oss</a></li>
+      <li><a class="translate-career" href="${getBasePath()}/html/karriere.html">Jobb hos oss</a></li>
+      <li><a class="translate-faq" href="${getBasePath()}/html/q&a.html"></a></li>
     </ul>
   </footer>
 `;
